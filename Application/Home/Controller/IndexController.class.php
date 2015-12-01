@@ -19,9 +19,9 @@ class IndexController extends Controller
             $questions =
                 M('question q')
                     ->order('q.id desc')
-                    ->join('auth_user u on q.uid_id= u.id')
+                    ->join('auth_user u on q.user_id= u.id')
                     ->limit(10)
-                    ->field('q.id,q.title,q.votes,q.answers,q.views,q.ct,u.username,u.id as uid,null as tags')
+                    ->field('q.id,q.title,q.votes,q.answers,q.views,q.ct,u.username,q.user_id,null as tags')
                     ->select();
             $count = count($questions);
             for ($i=0; $i<$count;$i++) {
