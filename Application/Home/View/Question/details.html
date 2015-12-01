@@ -1,0 +1,408 @@
+<div itemscope="" itemtype="http://schema.org/Question">
+    <link itemprop="image" href="//cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+    <div id="question-header">
+        <h1 itemprop="name">
+            <a href="/index.php/Home/Question/details/id/{$q.id}" class="question-hyperlink">{$q.title}</a>
+        </h1>
+    </div>
+    <div id="mainbar">
+        <div class="question" data-questionid="{$q.id}" id="question">
+            <table>
+                <tbody>
+                <tr>
+                    <td class="votecell">
+                        <div class="vote">
+                            <input type="hidden" name="_id_" value="{$q.id}">
+                            <a class="vote-up-off"
+                               title="This question shows research effort; it is useful and clear (click again to undo)">up
+                                vote</a>
+                            <span itemprop="upvoteCount" class="vote-count-post ">{$q.votes}</span>
+                            <a class="vote-down-off"
+                               title="This question does not show any research effort; it is unclear or not useful (click again to undo)">down
+                                vote</a>
+                            <a class="star-off" href="#" title="This is a favorite question (click again to undo)">favorite</a>
+                            <div class="favoritecount"><b></b></div>
+                        </div>
+                    </td>
+                    <td class="postcell">
+                        <div>
+                            <div class="post-text" itemprop="text">
+                               {$q.content}
+                            </div>
+                            <div class="post-taglist">
+                                <foreach name="q.tags" item="tag">
+                                    <a href="/index.php/Home/Question/tagged/{$tag.id}" class="post-tag" title="show questions tagged &#39;{$tag.name}&#39;" rel="tag">{$tag.name}</a>
+                                </foreach>
+                            </div>
+                            <table class="fw">
+                                <tbody>
+                                <tr>
+                                    <td class="vt">
+                                        <!--<div class="post-menu">-->
+                                            <!--<a href="/q/34014184/5619549"-->
+                                                                  <!--title="short permalink to this question"-->
+                                                                  <!--class="short-link"-->
+                                                                  <!--id="link-post-34014184">share</a>-->
+                                            <!--<span class="lsep">|</span><a href="/posts/34014184/edit"-->
+                                                                        <!--class="suggest-edit-post"-->
+                                                                        <!--title="revise and improve this post">edit</a>-->
+                                        <!--</div>-->
+                                    </td>
+                                    <td class="post-signature owner">
+                                        <div class="user-info ">
+                                            <div class="user-action-time">
+                                                asked <span title="{$q.ct}" class="relativetime">{$q.ct}</span>
+                                            </div>
+                                            <div class="user-gravatar32">
+                                                <a href="/index.php/Home/User/{$q.uid_id}">
+                                                    <!--<div class="gravatar-wrapper-32"><img-->
+                                                            <!--src="https://www.gravatar.com/avatar/3195282fda1d61dbc5e3bd0acba0a343?s=32&amp;d=identicon&amp;r=PG&amp;f=1"-->
+                                                            <!--alt="" width="32" height="32"></div>-->
+                                                </a>
+                                            </div>
+                                            <div class="user-details">
+                                                <a href="/index.php/Home/User/{$q.uid_id}">{$q.username}</a><br>
+                                                <!--<span class="reputation-score" title="reputation score "-->
+                                                      <!--dir="ltr">11</span><span title="2 bronze badges"><span-->
+                                                    <!--class="badge3"></span><span class="badgecount">2</span></span>-->
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="votecell"></td>
+                    <td>
+                        <div id="comments-34014184" class="comments  dno">
+                            <table>
+                                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true"
+                                       data-comments-unavailable="false" data-addlink-disabled="true">
+
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div id="comments-link-34014184" data-rep="50" data-reg="true">
+
+                            <a class="js-add-link comments-link disabled-link "
+                               title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments.">add
+                                a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+                            <a class="js-show-link comments-link dno" title="expand to show all comments on this post"
+                               href="#" onclick=""></a>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="answers">
+            <a name="tab-top"></a>
+            <div id="answers-header">
+                <div class="subheader answers-subheader">
+                    <h2>
+                        {$q.answers} Answer
+                        <span style="display:none;" itemprop="answerCount">{$q.answers}</span>
+                    </h2>
+                    <!--<div>-->
+                        <!--<div id="tabs">-->
+                            <!--<a href="/questions/34014184/how-to-restore-specific-table-from-previous-backup-in-mysql?answertab=active#tab-top"-->
+                               <!--data-nav-xhref="" title="Answers with the latest activity first" data-value="active">active</a>-->
+                            <!--<a href="/questions/34014184/how-to-restore-specific-table-from-previous-backup-in-mysql?answertab=oldest#tab-top"-->
+                               <!--data-nav-xhref="" title="Answers in the order they were provided" data-value="oldest">oldest</a>-->
+                            <!--<a class="youarehere"-->
+                               <!--href="/questions/34014184/how-to-restore-specific-table-from-previous-backup-in-mysql?answertab=votes#tab-top"-->
+                               <!--data-nav-xhref="" title="Answers with the highest score first"-->
+                               <!--data-value="votes">votes</a>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                </div>
+            </div>
+            <volist name="q.q_answers" id="qa">
+                <a name="{$qa.id}"></a>
+                <div id="answer-{$qa.id}" class="answer" data-answerid="{$qa.id}" itemscope=""
+                     itemtype="http://schema.org/Answer">
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td class="votecell">
+                                <div class="vote">
+                                    <input type="hidden" name="_id_" value="{$qa.id}">
+                                    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+                                    <span itemprop="upvoteCount" class="vote-count-post ">0</span>
+                                    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down
+                                        vote</a>
+                                </div>
+                            </td>
+                            <td class="answercell">
+                                <div class="post-text" itemprop="text">
+                                    {$qa.answer}
+                                    <!--<p>mYou can find in this post the inforation you need to import your-->
+                                        <!--<strong>.sql</strong> file</p>-->
+
+<!--<pre><code>Using the MySQL Query Browser, connect to your MySQL Server.-->
+    <!--From the Schemata panel, select the database you intend to add the new database table to.-->
+    <!--Choose File &gt; Open Script.-->
+    <!--Navigate to the .sql file you wish to import.-->
+    <!--Click Open.-->
+    <!--Select Execute.-->
+    <!--Confirm that the new database table appears in the Schemata panel.-->
+<!--</code></pre>-->
+
+                                    <!--<p>THis is an old post on stackoverflow: <a-->
+                                            <!--href="http://stackoverflow.com/questions/20592497/import-database-from-sql-file">Import-->
+                                        <!--database from sql file</a></p>-->
+
+                                    <!--<p>I hope this will help you!</p>-->
+                                </div>
+                                <table class="fw">
+                                    <tbody>
+                                    <tr>
+                                        <td class="vt">
+                                            <!--<div class="post-menu">-->
+                                                <!--<a href="/a/34014914/5619549"-->
+                                                                      <!--title="short permalink to this answer"-->
+                                                                      <!--class="short-link"-->
+                                                                      <!--id="link-post-34014914">share</a><span-->
+                                                    <!--class="lsep">|</span><a href="/posts/34014914/edit"-->
+                                                                            <!--class="suggest-edit-post"-->
+                                                                            <!--title="revise and improve this post">edit</a>-->
+                                            <!--</div>-->
+                                        </td>
+                                        <td align="right" class="post-signature">
+                                            <div class="user-info ">
+                                                <div class="user-action-time">
+                                                    answered <span title="{$qa.ct}" class="relativetime">{$qa.ct}</span>
+                                                </div>
+                                                <div class="user-gravatar32">
+                                                    <a href="/index.php/Home/User/{$qa.uid_id}">
+                                                        <!--<div class="gravatar-wrapper-32"><img-->
+                                                                <!--src="https://www.gravatar.com/avatar/ddce440a771246719f9dcbd3b5479547?s=32&amp;d=identicon&amp;r=PG&amp;f=1"-->
+                                                                <!--alt="" width="32" height="32"></div>-->
+                                                    </a>
+                                                </div>
+                                                <div class="user-details">
+                                                    <a href="/index.php/Home/User/{$qa.uid_id}">{$qa.username}</a><br>
+                                                <!--<span class="reputation-score" title="reputation score "-->
+                                                      <!--dir="ltr">241</span><span title="1 silver badge"><span-->
+                                                        <!--class="badge2"></span><span class="badgecount">1</span></span><span-->
+                                                        <!--title="6 bronze badges"><span class="badge3"></span><span-->
+                                                        <!--class="badgecount">6</span></span>-->
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="votecell"></td>
+                            <td>
+                                <div id="comments-34014914" class="comments  dno">
+                                    <table>
+                                        <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true"
+                                               data-comments-unavailable="false" data-addlink-disabled="true">
+
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div id="comments-link-34014914" data-rep="50" data-reg="true">
+
+                                    <a class="js-add-link comments-link disabled-link "
+                                       title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add
+                                        a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+                                    <a class="js-show-link comments-link dno"
+                                       title="expand to show all comments on this post" href="#" onclick=""></a>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <a name="new-answer"></a>
+            </volist>
+
+
+            <form id="post-form" action="/questions/34014184/answer/submit" method="post" class="post-form">
+                <input type="hidden" id="post-id" value="34014184">
+                <input type="hidden" id="qualityBanWarningShown" name="qualityBanWarningShown" value="false">
+                <input type="hidden" name="referrer" value="http://stackoverflow.com/">
+
+                <h2 class="space">Your Answer</h2>
+
+
+                <script>
+                    StackExchange.ifUsing("editor", function () {
+                        StackExchange.using("externalEditor", function () {
+                            StackExchange.using("snippets", function () {
+                                StackExchange.snippets.init();
+                            });
+                        });
+                    }, "code-snippets");
+                </script>
+
+
+                <script>
+                    StackExchange.ready(function () {
+                        initTagRenderer("".split(" "), "".split(" "));
+
+                        StackExchange.using("externalEditor", function () {
+                            // Have to fire editor after snippets, if snippets enabled
+                            if (StackExchange.options.snippets.enabled) {
+                                StackExchange.using("snippets", function () {
+                                    createEditor();
+                                });
+                            }
+                            else {
+                                createEditor();
+                            }
+                        });
+
+                        function createEditor() {
+                            prepareEditor({
+                                heartbeatType: 'answer',
+                                convertImagesToLinks: true,
+                                reputationToPostImages: 10,
+                                bindNavPrevention: true,
+                                postfix: "",
+                                onDemand: false,
+                                discardSelector: ".discard-answer"
+                                , immediatelyShowMarkdownHelp: true
+                            });
+
+
+                        }
+                    });
+                </script>
+
+
+                <div id="post-editor" class="post-editor js-post-editor">
+
+                    <div style="position: relative;">
+                        <div class="wmd-container">
+                            <div id="wmd-button-bar" class="wmd-button-bar"></div>
+                            <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15"
+                                      tabindex="101" data-min-length=""></textarea>
+                        </div>
+                    </div>
+
+                    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+                    <div id="draft-saved" class="draft-saved community-option fl"
+                         style="margin-top: 8px; height:24px; display:none;">draft saved
+                    </div>
+
+                    <div id="draft-discarded" class="draft-discarded community-option fl"
+                         style="margin-top: 8px; height:24px; display:none;">draft discarded
+                    </div>
+
+
+                    <div id="wmd-preview" class="wmd-preview"></div>
+                    <div></div>
+                    <div class="edit-block">
+                        <input id="fkey" name="fkey" type="hidden" value="06c9368bee437ee3885f59d7022abcea">
+                        <input id="author" name="author" type="text">
+                    </div>
+
+
+                </div>
+                <div style="position: relative;">
+
+
+                </div>
+
+                <div class="form-submit cbt">
+                    <input id="submit-button" type="submit" value="Post Your Answer" tabindex="110">
+                    <a href="#" class="discard-answer dno">discard</a>
+                </div>
+            </form>
+
+
+            <h2 class="bottom-notice" data-loc="1">
+                Not the answer you're looking for? Browse other questions tagged <a href="/questions/tagged/mysql"
+                                                                                    class="post-tag"
+                                                                                    title="show questions tagged 'mysql'"
+                                                                                    rel="tag">mysql</a> or <a
+                    href="/questions/ask">ask your own question</a>. </h2>
+        </div>
+    </div>
+    <div id="sidebar" class="show-votes">
+
+
+        <script>
+            window.showNewUser = false;
+
+        </script>
+
+        <div class="module newuser newuser-greeting" id="newuser-box" style="display:none;">
+            <h4>Hello World!</h4>
+
+            <div>
+                <p>This is a collaboratively edited question and answer site for <b>professional and enthusiast
+                    programmers</b>. It's 100% free.</p>
+
+                <p>Got a question about the site itself? <a href="http://meta.stackoverflow.com">meta</a> is the place
+                    to talk about things like what questions are appropriate, what tags we should use, etc.</p>
+
+                <p class="ar">
+                    <a href="/tour?mnu=1">about »</a>&nbsp;&nbsp;&nbsp;
+                    <a href="/help?mnu=1">help »</a>
+                    &nbsp; <a href="http://meta.stackoverflow.com">meta »</a>
+                </p>
+            </div>
+        </div>
+        <script>
+            if (showNewUser) {
+                document.getElementById('newuser-box').style.display = '';
+            }
+        </script>
+
+
+
+
+    </div>
+
+    <div id="feed-link">
+        <div id="feed-link-text">
+            <a href="/feeds/question/34014184" title="feed of this question and its answers">
+                <span class="feed-icon"></span>question feed
+            </a>
+        </div>
+    </div>
+    <script>
+        StackExchange.ready(function () {
+            $.get('/posts/34014184/ivc/efe5');
+        });
+    </script>
+    <noscript>
+        &lt;div&gt;&lt;img src="/posts/34014184/ivc/efe5" class="dno" alt="" width="0" height="0"&gt;&lt;/div&gt;
+    </noscript>
+    <div style="display:none" id="prettify-lang">lang-sql</div>
+</div>
+
+<script>
+    $('#wmd-input').one("keypress", function () {
+        $.ajax({
+            url: '/accounts/email-settings-form',
+            cache: false,
+            success: function (data) {
+                $('#submit-button').parent().prepend(data);
+            }
+        });
+    });
+
+</script>

@@ -12,6 +12,7 @@ return array(
     'DB_PORT' => '3306', // 数据库端口
     'DB_CHARSET' => 'utf8', // 字符集
 
+    'DATA_CACHE_TIME' => 60, // 缓存过期时间  单位：秒
     // layout
     'LAYOUT_ON' => true, // 使用模板
     'LAYOUT_NAME' => 'layout', // 模板名称
