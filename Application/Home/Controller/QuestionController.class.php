@@ -14,7 +14,7 @@ use Think\Controller;
 class QuestionController extends Controller {
 
     public function index($p=1) {
-        
+
         echo memory_get_usage() . '<br />';
         G('begin');
         $question = M('question');
