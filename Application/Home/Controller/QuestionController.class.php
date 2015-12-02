@@ -13,7 +13,7 @@ use Think\Controller;
 
 class QuestionController extends Controller {
 
-    public function index($p=1) {
+    public function index($p = 1) {
 
         echo memory_get_usage() . '<br />';
         G('begin');
@@ -87,10 +87,11 @@ class QuestionController extends Controller {
             $q[ 'tags' ] = $tags;
 
             $mapanswer[ 'question_id' ] = array('eq', $q[ 'id' ]);
-            $answers = M('question_answers qa')
+            $answers = M('answer a')
                 ->where($mapanswer)
-                ->join(' auth_user u on qa.user_id = u.id')
-                ->field('qa.id,qa.votes,qa.answer,qa.user_id,u.username,qa.ct')
+                ->order('votes desc')
+                ->join(' auth_user u on a.user_id = u.id')
+                ->field('a.id,a.votes,a.answer,a.user_id,u.username,a.ct')
                 ->select();
             //dump($answers);
             $q[ 'q_answers' ] = $answers;
@@ -104,5 +105,23 @@ class QuestionController extends Controller {
     }
 
     public function tagged() {
+    }
+
+    public function answer() {
+        if ($_POST) {
+            $answer = M('answer');
+            $answer->answer = $_POST[ 'answer' ];
+            $answer->votes = 0;
+            $answer->ct = date('Y-m-d H:i:s');
+            $answer->question_id = $_POST[ 'question_id' ];
+            $user = $_SESSION[ 'user' ][ 0 ];
+            $answer->user_id = $user[ 'id' ];
+            $answer->add();
+            $map['id'] = array('eq',$_POST[ 'question_id' ]);
+            $question = M('question');
+            $question->where($map)->setInc('answers',1);
+        }
+
+        $this->redirect('/Home/Question/details/id/' . $_POST[ 'question_id' ]);
     }
 }
