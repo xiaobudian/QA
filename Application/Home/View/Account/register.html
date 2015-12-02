@@ -1,0 +1,135 @@
+<div id="content" class="snippet-hidden">
+
+    <div class="subheader">
+        <div id="tabs" style="float: left;">
+            <a href="/index.php/Home/Account/login" title="Log in to Stack Overflow">Log in</a>
+            <a href="/index.php/Home/Account/register" title="Sign up to Stack Overflow" class="youarehere">Sign up</a>
+        </div>
+    </div>
+    <div id="signup-page">
+        <br/><br/><br/><br/>
+
+        <div id="formContainer">
+
+            <!--<div id="openid-buttons">-->
+            <!--<div class="major-provider   google-login" data-provider="google" data-oauthserver="https://accounts.google.com/o/oauth2/auth" data-oauthversion="2.0">-->
+            <!--<div class="icon-container"><span class="icon" style=""></span></div>-->
+            <!--<div class="text"><span>Google</span></div>-->
+            <!--<br class="cbt">-->
+            <!--</div>-->
+            <!--<div class="major-provider   facebook-login" data-provider="facebook" data-oauthserver="https://www.facebook.com/v2.0/dialog/oauth" data-oauthversion="2.0">-->
+            <!--<div class="icon-container"><span class="icon" style=""></span></div>-->
+            <!--<div class="text"><span>Facebook</span></div>-->
+            <!--<br class="cbt">-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="or-container">-->
+            <!--<hr class="or-hr">-->
+            <!--<div id="or">or</div>-->
+            <!--</div>-->
+            <form id="login-form" action="/index.php/Home/Account/register" method="POST">
+                <div id="se-login-fields">
+                    <h1>
+                        <label for="tips">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Just one Step</label><br>
+                    </h1>
+                    <!--<input name="fkey" value="a44b500e532cf3d5851e3f1c23e5fe2e" type="hidden">-->
+                    <!--<input name="ssrc" value="head" type="hidden">-->
+                    <!--<input name="legalLinksShown" value="1" type="hidden">-->
+                    <!--<label for="display-name">Display Name</label><br>-->
+                    <!--<input name="username" id="display-name" placeholder="J. Doe" type="text"><br>-->
+                    <label for="email">Email</label><br>
+                    <input name="email" id="email" size="30" maxlength="100" placeholder="you@example.org" type="email"><br>
+                    <label style="display: none;" for="email">Email is required.</label><br>
+                    <!--<label for="password">Password</label><br>-->
+                    <!--<input name="password" id="password" placeholder="********" type="password"><br>-->
+                </div>
+                <br class="cbt">
+
+                <div id="controls-row">
+                    <!--<a id="more-options-link">more sign up options</a>-->
+                    <input class="fr" id="submit-button" name="submit-button" value="Sign up" type="button">
+                </div>
+                <div id="openid_form">
+                    <input id="oauth_version" name="oauth_version" type="hidden">
+                    <input id="oauth_server" name="oauth_server" type="hidden">
+
+                    <div>
+                        <noscript>
+                            <p class="noscript-notice">
+                                Open ID is a service that allows you to log on to many different websites using a single
+                                identity. Find out <a href="http://openid.net/what/">more about OpenId</a> and <a
+                                    href="http://openid.net/get/">how to get an OpenID-enabled account</a>.
+                            </p>
+                        </noscript>
+                    </div>
+                    <div id="show-more-options">
+                        <div class="or-container">
+                            <hr class="or-hr">
+                            <div id="or">or</div>
+                        </div>
+                        <div id="more-options-container">
+                            <div id="more-openid-options">
+                                <a title="Sign up with Yahoo"
+                                   href="javascript:auth.signin($('#more-openid-options a.yahoo'));"
+                                   data-provider="yahoo" data-url="https://me.yahoo.com/"
+                                   style="background-position: -27px -300px" class="yahoo openid_small_btn"></a>
+                                <a title="Sign up with LiveJournal"
+                                   href="javascript:auth.signin($('#more-openid-options a.livejournal'));"
+                                   data-provider="livejournal" data-label="Enter your LiveJournal username"
+                                   data-url="http://{username}.livejournal.com/"
+                                   style="background-position: -1px -352px" class="livejournal openid_small_btn"></a>
+                                <a title="Sign up with WordPress"
+                                   href="javascript:auth.signin($('#more-openid-options a.wordpress'));"
+                                   data-provider="wordpress" data-label="Enter your WordPress username"
+                                   data-url="http://{username}.wordpress.com/" style="background-position: -1px -404px"
+                                   class="wordpress openid_small_btn"></a>
+                                <a title="Sign up with Blogger"
+                                   href="javascript:auth.signin($('#more-openid-options a.blogger'));"
+                                   data-provider="blogger" data-label="Enter your Blogger username"
+                                   data-url="https://{username}.blogspot.com/" style="background-position: -1px -249px"
+                                   class="blogger openid_small_btn"></a>
+                                <a title="Sign up with Verisign"
+                                   href="javascript:auth.signin($('#more-openid-options a.verisign'));"
+                                   data-provider="verisign" data-label="Enter your Verisign username"
+                                   data-url="https://{username}.pip.verisignlabs.com/"
+                                   style="background-position: -1px -378px" class="verisign openid_small_btn"></a>
+                                <a title="Sign up with AOL"
+                                   href="javascript:auth.signin($('#more-openid-options a.aol'));" data-provider="aol"
+                                   data-label="Enter your AOL username" data-url="https://openid.aol.com/{username}"
+                                   style="background-position: -27px -249px" class="aol openid_small_btn"></a>
+                            </div>
+                            <div id="simple-openid-selector">
+                                <div id="openid_input_area">
+                                    <p id="openid_provider_label"></p>
+                                    <input id="openid_username" name="openid_username" value="" type="text">
+                                </div>
+                                <div id="openid-url-input-area">
+                                    <noscript>
+                                        <p class="noscript-notice">Because JavaScript is disabled, you can only sign up
+                                            by entering your OpenID URL manually:</p>
+                                    </noscript>
+                                    <label for="openid_identifier">OpenID</label>
+                                    <input id="openid_identifier" name="openid_identifier"
+                                           placeholder="Or, you can manually enter your OpenID"
+                                           class="openid-identifier" type="text">
+                                </div>
+                                <input id="openid_submit" value="Sign up" class="fr" type="submit">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!--<div class="cbt" style="padding-top: 25px;">-->
+
+            <!--By registering, you agree to the <a href="http://stackexchange.com/legal/privacy-policy" target="_blank">privacy policy</a> and <a href="http://stackexchange.com/legal/terms-of-service" target="_blank">terms of service</a>.-->
+            <!--</div>-->
+        </div>
+        <div id="switch">
+
+            Already have an account? <a href="/index.php/Home/Account/login">Log in</a>
+        </div>
+    </div>
+
+</div>
+<js href="/Public/js/utility/regex.js"/>
+<js href="/Public/js/account/register.js"/>

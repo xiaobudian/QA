@@ -7,13 +7,13 @@
  */
 
 namespace Home\Controller;
+use Home\Controller\BaseController;
 
-use Think\Controller;
-
-class AskController extends Controller
+class AskController extends BaseController
 {
     public function index()
     {
+        $this->checkAuth();
         if ($_POST) {
             $q = M('question');
             $q->title = $_POST['title'];

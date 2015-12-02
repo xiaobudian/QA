@@ -4,10 +4,8 @@ namespace Home\Controller;
 use Think\Controller;
 use Think\Cache\Driver\Memcached;
 
-class IndexController extends Controller
-{
-    public function index()
-    {
+class IndexController extends Controller {
+    public function index() {
         echo memory_get_usage() . '<br />';
         G('begin');
         $key = 'question:' . 'newest';
@@ -15,7 +13,7 @@ class IndexController extends Controller
         $questions = $mem->get($key);
 
         if (!$questions) {
-            echo 'refreshing'. '<br />';
+            echo 'refreshing' . '<br />';
             $questions =
                 M('question q')
                     ->order('q.id desc')
@@ -24,36 +22,35 @@ class IndexController extends Controller
                     ->field('q.id,q.title,q.votes,q.answers,q.views,q.ct,u.username,q.user_id,null as tags')
                     ->select();
             $count = count($questions);
-            for ($i=0; $i<$count;$i++) {
+            for ($i = 0; $i < $count; $i++) {
 
                 $tags =
                     M('tag t')
                         ->join('question_tags qt on t.id = qt.tag_id')
-                        ->where('qt.question_id = ' . $questions[$i]['id'])
+                        ->where('qt.question_id = ' . $questions[ $i ][ 'id' ])
                         ->select();
 
-                $questions[$i]['tags'] = $tags;
+                $questions[ $i ][ 'tags' ] = $tags;
 //                dump($question);
                 //array_push($question,$tags);
                 //dump($question);
             }
             $mem->clear();
             $mem->set($key, $questions);
-        }else{
-            echo 'cached'. '<br />';
+        } else {
+            echo 'cached' . '<br />';
         }
 
         //dump($questions);
         G('end');
         echo memory_get_usage() . '<br />';
-        echo G('begin','end').'s';
+        echo G('begin', 'end') . 's';
         $this->assign('questions', $questions);
         $this->display();
 
     }
 
-    public function mem()
-    {
+    public function mem() {
         $mem = Memcached::getInstance();
         $tags = $mem->get('tags');
         dump($tags);
@@ -78,8 +75,7 @@ class IndexController extends Controller
 
     }
 
-    public function phpinfo()
-    {
+    public function phpinfo() {
 
         echo phpinfo();
     }
