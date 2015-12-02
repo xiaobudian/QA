@@ -22,11 +22,11 @@ class AskController extends BaseController {
             $q->views = 0;
             $q->answers = 0;
             $user = $_SESSION[ 'user' ];
-            $q->user_id = $user->id;    
+
+            $q->user_id = $user[0]['id'];
             $result = $q->add();
-            dump($result);
-            dump($q);
-            //$this->redirect("/");
+
+            $this->redirect("/");
         }
         $this->display();
     }
