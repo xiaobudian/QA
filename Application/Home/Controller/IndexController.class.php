@@ -14,11 +14,12 @@ class IndexController extends Controller {
 
         if (!$questions) {
             echo 'refreshing' . '<br />';
+
             $questions =
                 M('question q')
                     ->order('q.id desc')
                     ->join('auth_user u on q.user_id= u.id')
-                    ->limit(10)
+                    ->limit(20)
                     ->field('q.id,q.title,q.votes,q.answers,q.views,q.ct,u.username,q.user_id,null as tags')
                     ->select();
             $count = count($questions);
@@ -40,6 +41,8 @@ class IndexController extends Controller {
         } else {
             echo 'cached' . '<br />';
         }
+
+
 
         //dump($questions);
         G('end');

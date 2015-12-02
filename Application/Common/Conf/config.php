@@ -28,4 +28,6 @@ return array(
     'MAIL_FROMNAME' => '刘帅',//发件人姓名
     'MAIL_CHARSET' => 'utf-8',//设置邮件编码
     'MAIL_ISHTML' => TRUE, // 是否HTML格式邮件
+
+    'PAGESIZE' => 10,
 );
