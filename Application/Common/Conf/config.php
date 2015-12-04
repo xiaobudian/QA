@@ -30,4 +30,6 @@ return array(
     'MAIL_ISHTML' => TRUE, // 是否HTML格式邮件
 
     'PAGESIZE' => 10,
+    'TAGPAGESIZE' => 32,
+    'TAGSUGGESTION' => 6,
 );

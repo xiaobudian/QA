@@ -10,6 +10,7 @@ namespace Home\Controller;
 
 use Think\Cache\Driver\Memcached;
 use Think\Controller;
+use Think\Exception;
 
 class QuestionController extends Controller {
 
@@ -93,6 +94,10 @@ class QuestionController extends Controller {
                 ->join(' auth_user u on a.user_id = u.id')
                 ->field('a.id,a.votes,a.answer,a.user_id,u.username,a.ct')
                 ->select();
+//            $answer_count = count($answers);
+//            for($i=0;$i<$answer_count;$i++){
+//                $answers[$i]['answer'] = urldecode($answers[$i]['answer']);
+//            }
             //dump($answers);
             $q[ 'q_answers' ] = $answers;
 
@@ -104,22 +109,41 @@ class QuestionController extends Controller {
         }
     }
 
-    public function tagged() {
+    public function tagged($id) {
     }
 
     public function answer() {
         if ($_POST) {
-            $answer = M('answer');
-            $answer->answer = $_POST[ 'answer' ];
-            $answer->votes = 0;
-            $answer->ct = date('Y-m-d H:i:s');
-            $answer->question_id = $_POST[ 'question_id' ];
-            $user = $_SESSION[ 'user' ][ 0 ];
-            $answer->user_id = $user[ 'id' ];
-            $answer->add();
-            $map['id'] = array('eq',$_POST[ 'question_id' ]);
-            $question = M('question');
-            $question->where($map)->setInc('answers',1);
+            $answer_str = $_POST[ 'answer' ];
+            $answer_str = urldecode($answer_str);
+            if (strlen($answer_str) > 0) {
+                $answer = M('answer');
+                try {
+                    $answer->startTrans();
+                    $answer->answer = $answer_str;
+                    $answer->votes = 0;
+                    $answer->ct = date('Y-m-d H:i:s');
+                    $answer->question_id = $_POST[ 'question_id' ];
+                    $user = $_SESSION[ 'user' ][ 0 ];
+                    $answer->user_id = $user[ 'id' ];
+                    $added = $answer->add();
+                    $map[ 'id' ] = array('eq', $_POST[ 'question_id' ]);
+                    $question = M('question');
+                    $inced = $question->where($map)->setInc('answers', 1);
+                    if ($added && $inced) {
+                        $answer->commit();
+                    } else {
+                        $answer->rollback();
+                    }
+                } catch (Exception $ex) {
+                    $answer->rollback();
+                    echo $ex->getMessage();
+                    die();
+                }
+            }else{
+                echo '答案长度不符合要求';
+                die();
+            }
         }
 
         $this->redirect('/Home/Question/details/id/' . $_POST[ 'question_id' ]);

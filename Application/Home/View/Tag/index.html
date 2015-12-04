@@ -1,0 +1,75 @@
+<div id="content" class="snippet-hidden">
+    <div id="mainbar-full">
+        <div class="subheader">
+            <h1 id="h-tags">Tags</h1>
+
+            <div id="tabs">
+                <a class="youarehere" href="/tags?tab=popular" data-nav-xhref="" title="most popular tags"
+                   data-value="popular">popular</a>
+                <a href="/tags?tab=name" data-nav-xhref="" title="tags in alphabetical order" data-value="name">name</a>
+                <a href="/tags?tab=new" data-nav-xhref="" title="recently created tags" data-value="new">new</a>
+            </div>
+        </div>
+        <div class="page-description">
+            <p>
+                A tag is a keyword or label that categorizes your question with other, similar questions. Using the
+                right tags makes it easier for others to find and answer your question.
+            </p>
+            <table>
+                <tbody>
+                <tr>
+                    <td>Type to find tags:</td>
+                    <td style="padding-left:5px"><input id="tagfilter" name="tagfilter" type="text"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="tags_list">
+            <table id="tags-browser">
+                <tbody>
+                <php>
+                    $tr=1;
+                    foreach($tags as $t){
+                        if(($tr-1)%4==0)
+                        {
+                        echo "<tr>";
+                            }
+                    $str = '<td class="tag-cell">
+                                <a href="/index.php/Home/Question/tagged/id/'.$t['id'].'"class="post-tag"
+                                   title="show questions tagged '.$t['name'].' rel="tag">'.$t['name'].'</a>
+                                <span
+                                    class="item-multiplier">
+                                    <span class="item-multiplier-x">×</span>&nbsp;
+                                    <span class="item-multiplier-count">'.$t['reputation'].'</span>
+                                </span>
+                                <div class="excerpt">
+                                    '.$t['description'].'
+                                </div>
+                                <!--<div>-->
+                                    <!--<div class="stats-row fl"><a-->
+                                            <!--href="/questions/tagged/javascript?sort=newest&amp;days=1"-->
+                                            <!--title="1082 questions tagged javascript in the last 24 hours">1082-->
+                                        <!--asked today</a>, <a href="/questions/tagged/javascript?sort=newest&amp;days=7"-->
+                                                            <!--title="6204 questions tagged javascript in the last 7 days">6204-->
+                                        <!--this week</a></div>-->
+                                    <!--<div class="cbt"></div>-->
+                                <!--</div>-->
+                            </td>';
+echo $str;
+                            if($tr%4==0)
+                            {
+                            echo "</tr>";
+                        }
+                        $tr++;
+                    }
+                </php>
+                </tbody>
+            </table>
+
+        </div>
+        <div class="pager fr">
+            {$page}
+        </div>
+    </div>
+</div>
+<js href="/Public/js/tag/tag.js" />

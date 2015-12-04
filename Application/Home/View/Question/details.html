@@ -185,8 +185,8 @@
                     <div style="position: relative;">
                         <div class="wmd-container">
                             <div id="wmd-button-bar" class="wmd-button-bar"></div>
-                            <textarea id="wmd-input" class="wmd-input" name="answer" cols="92" rows="15"
-                                      tabindex="101" data-min-length=""></textarea>
+                            <input type="hidden" id="answer" name="answer" value="">
+                            <script id="editor" type="text/plain"  style="width:660px;height:300px;"></script>
                         </div>
                     </div>
                     <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
@@ -197,8 +197,6 @@
                     <div id="draft-discarded" class="draft-discarded community-option fl"
                          style="margin-top: 8px; height:24px; display:none;">draft discarded
                     </div>
-
-
                     <div id="wmd-preview" class="wmd-preview"></div>
                     <div></div>
                     <div class="edit-block">
@@ -209,7 +207,7 @@
                 <div style="position: relative;">
                 </div>
                 <div class="form-submit cbt">
-                    <input id="submit-button" type="submit" value="Post Your Answer" tabindex="110">
+                    <input id="submit-button" type="button" value="Post Your Answer" tabindex="110">
                     <a href="#" class="discard-answer dno">discard</a>
                 </div>
             </form>
@@ -217,3 +215,7 @@
     </div>
     <div style="display:none" id="prettify-lang">lang-sql</div>
 </div>
+<js href="/Public/third/ueditor/ueditor.config.js" />
+<js href="/Public/third/ueditor/ueditor.all.js" />
+<js href="/Public/third/ueditor/lang/zh-cn/zh-cn.js" />
+<js href="/Public/js/question/answer.js" />

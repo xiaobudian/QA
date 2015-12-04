@@ -1,430 +1,78 @@
 <div id="mainbar" class="ask-mainbar">
-
     <form id="post-form" class="post-form" action="/index.php/Home/Ask/index" method="post">
         <input type="hidden" name="qualityBanWarningShown" value="False">
         <input type="hidden" name="priorAttemptCount" value="0">
         <input type="hidden" name="warntags">
+        <input type="hidden" id="content" name="post-text" value="">
+
         <div id="question-form">
             <div style="position: relative;">
                 <div class="form-item ask-title">
                     <table class="ask-title-table">
-                        <tbody><tr>
+                        <tbody>
+                        <tr>
                             <td class="ask-title-cell-key">
                                 <label for="title">Title</label>
                             </td>
                             <td class="ask-title-cell-value">
-                                <input id="title"
-                                       name="title"
-                                       type="text"
-                                       maxlength="300"
-                                       tabindex="100"
+                                <input id="title" name="title" type="text" maxlength="300" tabindex="100"
                                        placeholder="What's your programming question? Be specific."
-                                       class="ask-title-field"
-                                       data-min-length="15"
-                                       data-max-length="150"
-                                       autocomplete="on">
-                            </td>
+                                       class="ask-title-field" data-min-length="15" data-max-length="150"
+                                       autocomplete="on"></td>
                         </tr>
-                        </tbody></table>
+                        </tbody>
+                    </table>
                     <div id="question-suggestions">
                     </div>
                 </div>
             </div>
-            <script>
-                StackExchange.ifUsing("editor", function () {
-                    StackExchange.using("externalEditor", function () {
-                        StackExchange.using("snippets", function () {
-                            StackExchange.snippets.init();
-                        });
-                    });
-                }, "code-snippets");
-            </script>
-            <script>
-                StackExchange.ready(function() {
-                    StackExchange.using("tagEditor", function () { StackExchange.tagEditor.ready.done(initFadingHelpText); });
-                    initTagRenderer("".split(" "), "".split(" "));
-
-                    StackExchange.using("externalEditor", function() {
-                        // Have to fire editor after snippets, if snippets enabled
-                        if (StackExchange.options.snippets.enabled) {
-                            StackExchange.using("snippets", function() {
-                                createEditor();
-                            });
-                        }
-                        else {
-                            createEditor();
-                        }
-                    });
-
-                    function createEditor() {
-                        prepareEditor({
-                            heartbeatType: 'ask',
-                            convertImagesToLinks: true,
-                            reputationToPostImages: 10,
-                            bindNavPrevention: true,
-                            postfix: "",
-                            onDemand: false,
-                            discardSelector: ".discard-question"
-                            ,immediatelyShowMarkdownHelp:true
-                        });
-
-
-                    }
-                });
-            </script>
             <div id="post-editor" class="post-editor js-post-editor">
-
                 <div style="position: relative;">
                     <div class="wmd-container">
-                        <div id="wmd-button-bar" class="wmd-button-bar"><ul id="wmd-button-row" class="wmd-button-row"><li class="wmd-button" id="wmd-bold-button" title="Strong <strong> Ctrl+B" style="left: 0px;"><span style="background-position: 0px 0px;"></span></li><li class="wmd-button" id="wmd-italic-button" title="Emphasis <em> Ctrl+I" style="left: 25px;"><span style="background-position: -20px 0px;"></span></li><li class="wmd-spacer wmd-spacer1" id="wmd-spacer1"></li><li class="wmd-button" id="wmd-link-button" title="Hyperlink <a> Ctrl+L" style="left: 75px;"><span style="background-position: -40px 0px;"></span></li><li class="wmd-button" id="wmd-quote-button" title="Blockquote <blockquote> Ctrl+Q" style="left: 100px;"><span style="background-position: -60px 0px;"></span></li><li class="wmd-button" id="wmd-code-button" title="Code Sample <pre><code> Ctrl+K" style="left: 125px;"><span style="background-position: -80px 0px;"></span></li><li class="wmd-button" id="wmd-image-button" title="Image <img> Ctrl+G" style="left: 150px;"><span style="background-position: -100px 0px;"></span></li><li class="wmd-button wmd-snippet-button" style="left:175px" id="wmd-snippet-button" title="JavaScript/HTML/CSS snippet Ctrl-M"><span style="background-image: url(http://stackoverflow.com/content/balsamiq/wmd-mockup-button.png?v=4);"></span></li><li class="wmd-spacer wmd-spacer2" id="wmd-spacer2" style="left: 220px;"></li><li class="wmd-button" id="wmd-olist-button" title="Numbered List <ol> Ctrl+O" style="left: 225px;"><span style="background-position: -120px 0px;"></span></li><li class="wmd-button" id="wmd-ulist-button" title="Bulleted List <ul> Ctrl+U" style="left: 250px;"><span style="background-position: -140px 0px;"></span></li><li class="wmd-button" id="wmd-heading-button" title="Heading <h1>/<h2> Ctrl+H" style="left: 275px;"><span style="background-position: -160px 0px;"></span></li><li class="wmd-button" id="wmd-hr-button" title="Horizontal Rule <hr> Ctrl+R" style="left: 300px;"><span style="background-position: -180px 0px;"></span></li><li class="wmd-spacer wmd-spacer3" id="wmd-spacer3" style="left: 346px;"></li><li class="wmd-button" id="wmd-undo-button" title="Undo - Ctrl+Z" style="left: 350px;"><span style="background-position: -200px -20px;"></span></li><li class="wmd-button" id="wmd-redo-button" title="Redo - Ctrl+Y" style="left: 375px;"><span style="background-position: -220px -20px;"></span></li><li class="wmd-button wmd-help-button active-help" id="wmd-help-button" title="Markdown Editing Help" style="right: 0px;"><span style="background-position: -240px 0px;"></span></li><div id="mdhelp" class="mdhelp" style="right: -13px; width: 660px; top: 41px;">
-                            <ul id="mdhelp-tabs" class="mdhelp-tabs">
-                                <li data-tab="mdhelp-links" data-buttons="link">Links</li>
-                                <li data-tab="mdhelp-images" data-buttons="image">Images</li>
-                                <li data-tab="mdhelp-styles" data-buttons="bold,italic,heading">Styling/Headers</li>
-                                <li data-tab="mdhelp-lists" data-buttons="olist,ulist">Lists</li>
-                                <li data-tab="mdhelp-blockquotes" data-buttons="quote">Blockquotes</li>
-                                <li data-tab="mdhelp-code" data-buttons="code">Code</li>
-                                <li data-tab="mdhelp-html"> HTML </li>
-                                <li style="float:right"><a href="/editing-help" target="_blank">advanced help »</a></li>
-                            </ul>
-
-                            <div class="mdhelp-tab" id="mdhelp-links">
-                                <p>
-                                    In most cases, a plain URL will be recognized as such and automatically linked:
-                                </p>
-            <pre>Visit http://area51.stackexchange.com/ regularly!
-Use angle brackets to force linking: Have you seen &lt;http://superuser.com&gt;?
-</pre>
-                                <p>
-                                    To create fancier links, use Markdown:
-                                </p>
-                <pre>Here's [a link](http://www.example.com/)! And a reference-style link to [a panda][1].
-References don't have to be [numbers][question].
-
- [1]: http://notfound.stackexchange.com/
- [question]: http://english.stackexchange.com/questions/11481
-</pre>
-                                <p>You can add tooltips to links:</p>
-<pre>Click [here](http://diy.stackexchange.com<span class="spaces">&nbsp;</span>"this text appears when you mouse over")!
-This works with [reference links][blog] as well.
-
- [blog]: http://blog.stackoverflow.com/<span class="spaces">&nbsp;</span>"click here for updates"
-</pre>
-                            </div>
-
-                            <div class="mdhelp-tab" id="mdhelp-images">
-                                <p>Images are exactly like links, but they have an exclamation point in front of them:</p>
-        <pre>![a busy cat](http://sstatic.net/stackoverflow/img/error-lolcat-problemz.jpg)
-![two muppets][1]
-
- [1]: http://i.imgur.com/I5DFV.jpg "tooltip"
-</pre>
-                                <p>
-                                    The word in square brackets is the alt text, which gets displayed if the browser
-                                    can't show the image. Be sure to include meaningful alt text for screen-reading
-                                    software.
-                                </p>
-
-                            </div>
-                            <div class="mdhelp-tab" id="mdhelp-styles">
-                                <div class="col1">
-                                    <p>Be sure to use text styling sparingly; only where it helps readability.</p>
-                <pre>*This is italicized*, and so
-is _this_.
-
-**This is bold**, just like __this__.
-
-You can ***combine*** them
-if you ___really have to___.
-</pre>
-
-                                </div>
-                                <div class="col2">
-                                    <p>
-                                        To break your text into sections, you can use headers:
-                                    </p>
-                <pre>A Large Header
-==============
-
-Smaller Subheader
------------------
-</pre>
-                                    <p>
-                                        Use hash marks if you need several levels of headers:</p>
-    <pre># Header 1 #
-## Header 2 ##
-### Header 3 ###
-</pre>
-
-
-                                </div>
-
-                            </div>
-                            <div class="mdhelp-tab" id="mdhelp-lists">
-                                <p>Both bulleted and numbered lists are possible:</p>
-                                <div class="col1">
-<pre>-<span class="spaces">&nbsp;</span>Use a minus sign for a bullet
-+<span class="spaces">&nbsp;</span>Or plus sign
-*<span class="spaces">&nbsp;</span>Or an asterisk
-
-1.<span class="spaces">&nbsp;</span>Numbered lists are easy
-2.<span class="spaces">&nbsp;</span>Markdown keeps track of
- the numbers for you
-7.<span class="spaces">&nbsp;</span>So this will be item 3.
-</pre>
-                                </div>
-                                <div class="col2">
-<pre>1.<span class="spaces">&nbsp;</span>Lists in a list item:
-<span class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</span>-<span class="spaces">&nbsp;</span>Indented four spaces.
-<span class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>*<span class="spaces">&nbsp;</span>indented eight spaces.
-<span class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</span>-<span class="spaces">&nbsp;</span>Four spaces again.
-2.<span class="spaces">&nbsp;&nbsp;</span>You can have multiple
-<span class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</span>paragraphs in a list items.
-<span class="spaces">&nbsp;</span>
-<span class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</span>Just be sure to indent.
-</pre>
-                                </div>
-                            </div>
-
-                            <div class="mdhelp-tab" id="mdhelp-blockquotes">
-                                <div class="col1">
-            <pre>&gt; Create a blockquote by
-&gt; prepending “&gt;” to each line.
-&gt;
-&gt; Other formatting also works here, e.g.
-&gt;
-&gt; 1. Lists or
-&gt; 2. Headings:
-&gt;
-&gt; ## Quoted Heading ##
-</pre>
-                                </div>
-                                <div class="col2">
-                                    <p>
-                                        You can even put blockquotes in blockquotes:
-                                    </p>
-                <pre>&gt; A standard blockquote is indented
-&gt; &gt; A nested blockquote is indented more
-&gt; &gt; &gt; &gt; You can nest to any depth.
-</pre>
-                                </div>
-                            </div>
-
-                            <div class="mdhelp-tab" id="mdhelp-code">
-                                <p>
-                                    To create code blocks or other preformatted text, indent by four spaces:
-                                </p>
-        <pre><span class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</span>This will be displayed in a monospaced font. The first four spaces
-<span class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</span>will be stripped off, but all other whitespace will be preserved.
-<span class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</span>
-<span class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</span>Markdown and HTML are turned off in code blocks:
-<span class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</span>&lt;i&gt;This is not italic&lt;/i&gt;, and [this is not a link](http://example.com)
-</pre>
-                                <p>
-                                    To create not a block, but an inline code span, use backticks:
-                                </p>
-        <pre>The `$` character is just a shortcut for `window.jQuery`.
-</pre>
-                                <p>
-                                    If you want to have a preformatted block within a list, indent by eight spaces:
-                                </p>
-        <pre>1. This is normal text.
-2. So is this, but now follows a code block:
-<span class="spaces">&nbsp;</span>
-<span class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>Skip a line and indent eight spaces.
-<span class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>That's four spaces for the list
-<span class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>and four to trigger the code block.
-</pre>
-                            </div>
-
-                            <div class="mdhelp-tab" id="mdhelp-html">
-                                <p>
-                                    If you need to do something that Markdown can't handle, use HTML. Note that <a href="http://meta.stackexchange.com/questions/1777/what-html-tags-are-allowed" target="_blank">we only support a very strict subset of HTML!</a>
-                                </p>
-        <pre>Strikethrough humor is &lt;strike&gt;funny&lt;/strike&gt;.
-</pre>
-                                <p>
-                                    Markdown is smart enough not to mangle your span-level HTML:
-                                </p>
-        <pre>&lt;b&gt;Markdown works *fine* in here.&lt;/b&gt;
-</pre>
-                                <p>
-                                    Block-level HTML elements have a few restrictions:
-                                </p>
-                                <ol>
-                                    <li>They must be separated from surrounding text by blank lines.</li>
-                                    <li>The begin and end tags of the outermost block element must not be indented.</li>
-                                    <li>Markdown can't be used within HTML blocks.</li>
-                                </ol>
-                                <br>
-        <pre>&lt;pre&gt;
- You can &lt;em&gt;not&lt;/em&gt; use Markdown in here.
-&lt;/pre&gt;
-</pre>
-                            </div>
-
-                            <div class="cbt"></div>
-                        </div></ul></div>
-                        <div style="clear: both; height: 27px;"></div><textarea id="wmd-input" class="wmd-input processed" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
-                        <div class="grippie" style="margin-right: 0px;"></div></div>
+                        <script id="editor" type="text/plain" style="width:660px;height:300px;"></script>
+                    </div>
                 </div>
-
                 <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
-                <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
-
-                <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
-
-
-
+                <div id="draft-saved" class="draft-saved community-option fl"
+                     style="margin-top: 8px; height:24px; display:none;">draft saved
+                </div>
+                <div id="draft-discarded" class="draft-discarded community-option fl"
+                     style="margin-top: 8px; height:24px; display:none;">draft discarded
+                </div>
                 <div id="wmd-preview" class="wmd-preview"></div>
                 <div></div>
                 <div class="edit-block">
                     <input id="fkey" name="fkey" type="hidden" value="06c9368bee437ee3885f59d7022abcea">
                     <input id="author" name="author" type="text">
                 </div>
-
-
-
             </div>
-
             <div style="position: relative;">
-
-                <script>
-                    StackExchange.using("tagEditor", function () {
-                        initTagRenderer("".split(" "), "".split(" "));
-                        StackExchange.tagEditor($("#tagnames"));
-                    });
-                </script>
-
                 <div style="position: relative;">
                     <div class="form-item">
                         <label>Tags</label>
-                        <input id="tagnames" name="tagnames" type="text" size="60" value="ssss" tabindex="103" style="display: none;">
                         <div class="tag-editor" style="width: 658px; height: 35px;">
-                            <!--<span>-->
-                                <!--<span class="post-tag rendered-element">ssss<span class="delete-tag" title="remove this tag"></span></span></span>-->
-                            <input type="text" tabindex="103" placeholder="" style="width: 589px;"><span></span></div>
-    <span class="edit-field-overlay">
-at least one tag such as (javascript forms image), max 5 tags    </span>
+                            <span>
+                            </span>
+                            <input id="tags" type="text" tabindex="103" placeholder="" style="width: 589px;">
+                            <input id="tagnames" name="tagnames" type="text" size="60" value="ssss" tabindex="103"
+                                   style="display: none;">
+                        </div>
+                        <div id="tag-suggestions">
+                        </div>
                     </div>
                 </div>
-
-                <div id="tag-suggestions"></div>
-                <script>
-                    StackExchange.using("tagSuggestions", function () {
-                        StackExchange.tagSuggestions.init();
-                    });
-                </script>
-
-
-
             </div>
-
             <div id="question-only-section">
-                <!--<div class="form-item">-->
-                    <!--<div>-->
-                        <!--<input id="inbox-opt-int-c1cce6205437410b96d4a93a6d3cbd85" type="checkbox">-->
-                        <!--<label for="inbox-opt-int-c1cce6205437410b96d4a93a6d3cbd85" style="display: inline">Send me new responses to my posts via email</label>-->
-                        <!--<a id="inbox-opt-int-c1cce6205437410b96d4a93a6d3cbd85-settings" href="#">(settings)</a>-->
-                    <!--</div>-->
-                    <!--<div id="inbox-opt-int-c1cce6205437410b96d4a93a6d3cbd85-container" style="display: none;">-->
-                        <!--Send me new responses to my posts via email-->
-                        <!--<select id="inbox-opt-int-c1cce6205437410b96d4a93a6d3cbd85-freq" disabled="disabled">-->
-                            <!--<option value="3">every 3 hours</option>-->
-                            <!--<option value="24">daily</option>-->
-                            <!--<option value="168">weekly</option>-->
-                        <!--</select>-->
-
-                        <!--<div>-->
-                            <!--Send emails to-->
-                            <!--<input id="inbox-opt-int-c1cce6205437410b96d4a93a6d3cbd85-address" style="width: 300px;" value="849351660@qq.com" disabled="disabled">-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <script>
-                    StackExchange.ready(function() {
-                        var settingsShown = false;
-                        var settingsContainer = $('#inbox-opt-int-c1cce6205437410b96d4a93a6d3cbd85-container');
-                        var settingsAutoExpand = false;
-                        var postForm = $('#post-form');
-                        var updateHiddenField = function(name, value) {
-                            var field = postForm.find('[name=' + name + ']');
-                            if (value === null) {
-                                field.remove();
-                            } else {
-                                if (field.length === 0) {
-                                    field = $('<input>').attr({ type: 'hidden', name: name }).appendTo(postForm);
-                                }
-                                field.val(value);
-                            }
-                        };
-
-                        var getFormData = function() {
-                            return {
-                                inboxEmailOptIn: $('#inbox-opt-int-c1cce6205437410b96d4a93a6d3cbd85').is(':checked'),
-                                inboxEmailAddress: $('#inbox-opt-int-c1cce6205437410b96d4a93a6d3cbd85-address').val(),
-                                inboxEmailFreq: $('#inbox-opt-int-c1cce6205437410b96d4a93a6d3cbd85-freq').val(),
-                            };
-                        };
-
-                        var clearForm = function() {
-                            for (var field in getFormData()) {
-                                updateHiddenField(field, null);
-                            }
-                        };
-
-                        var updateForm = function() {
-                            var data = getFormData();
-                            for (var field in getFormData()) {
-                                updateHiddenField(field, data[field]);
-                            }
-                        };
-
-                        var toggleSettings = function(show) {
-                            if (show) {
-                                settingsContainer.slideDown('fast');
-                                if (!settingsShown) {
-                                    StackExchange.using("gps", function() {
-                                        StackExchange.gps.track('inbox_settings.show', { location: '2' });
-                                    });
-                                    settingsShown = true;
-                                }
-                            } else {
-                                settingsContainer.slideUp('fast');
-                            }
-                        };
-                        $('#inbox-opt-int-c1cce6205437410b96d4a93a6d3cbd85').change(function() {
-                            var checked = $(this).is(':checked');
-                            if (checked) {
-                                if (settingsAutoExpand) {
-                                    toggleSettings(true);
-                                }
-                                updateForm();
-                            } else {
-                                if (settingsAutoExpand) {
-                                    toggleSettings(false);
-                                }
-                                clearForm();
-                            }
-                            $('#inbox-opt-int-c1cce6205437410b96d4a93a6d3cbd85-address, #inbox-opt-int-c1cce6205437410b96d4a93a6d3cbd85-freq').attr('disabled', !checked);
-                        }).change();
-                        $('#inbox-opt-int-c1cce6205437410b96d4a93a6d3cbd85-settings').click(function(evt) {
-                            toggleSettings(!settingsContainer.is(':visible'));
-                            evt.preventDefault();
-                            return false;
-                        });
-                        $('#inbox-opt-int-c1cce6205437410b96d4a93a6d3cbd85-address').keyup(updateForm);
-                        $('#inbox-opt-int-c1cce6205437410b96d4a93a6d3cbd85-freq').val('24').change(updateForm);
-                    });
-                </script>
-
                 <div class="form-submit cbt">
-                    <input id="submit-button" type="submit" value="Post Your Question" tabindex="120">
+                    <input id="submit-button" type="button" onclick="ask()" value="Post Your Question" tabindex="120">
                     <a href="#" class="discard-question ">discard</a>
-
                 </div>
             </div>
         </div>
 
     </form>
 </div>
+<js href="/Public/third/ueditor/ueditor.config.js"/>
+<js href="/Public/third/ueditor/ueditor.all.js"/>
+<js href="/Public/third/ueditor/lang/zh-cn/zh-cn.js"/>
+<js href="/Public/js/ask/ask.js"/>

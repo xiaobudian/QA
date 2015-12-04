@@ -30,9 +30,6 @@ class AccountController extends Controller {
             $user->is_active = 0;
             $user->date_joined = date('Y-m-d H:i:s');
             $user->add();
-            dump($_POST[ 'email' ]);
-            dump( $password);
-//            dump($user);
             $result = sendMail($_POST[ 'email' ], 'Welcom to qa!', '您的初始密码就是您的邮箱，请登录后及时修改密码！');
             dump($result);
             //$this->redirect("/");
