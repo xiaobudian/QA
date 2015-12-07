@@ -18,10 +18,12 @@ class AccountController extends Controller {
                 dump("email has registered.");
                 die();
             }
+            $user->startTrans();
+
             $user = M('auth_user');
             $user->username = $_POST[ 'email' ];
             $user->email = $_POST[ 'email' ];
-            $password =  md5($_POST[ 'email' ]);
+            $password = md5($_POST[ 'email' ]);
             $user->password = $password;
             $user->is_superuser = 0;
             $user->first_name = '';
@@ -29,11 +31,18 @@ class AccountController extends Controller {
             $user->is_staff = 1;
             $user->is_active = 0;
             $user->date_joined = date('Y-m-d H:i:s');
-            $user->add();
+            $user_id = $user->add();
+            $profile = M('profile');
+            $profile->pic = 'default.jpg';
+            $profile->reputation = 0;
+            $profile->user_id = $user_id;
+            $profile->add();
             $result = sendMail($_POST[ 'email' ], 'Welcom to qa!', '您的初始密码就是您的邮箱，请登录后及时修改密码！');
-            dump($result);
-            //$this->redirect("/");
-            //die();
+
+            $user->commit();
+            //dump($result);
+            $this->redirect("/");
+            die();
         }
         $this->display();
     }

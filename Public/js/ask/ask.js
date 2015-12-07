@@ -26,6 +26,7 @@ function finished(txt) {
             dataType: "html",
             success: function (result) {
                 var domelement = $(result);
+
                 $("#tag-suggestions").html(domelement);
             }
         });
@@ -47,11 +48,13 @@ function selecttag(id, name) {
     $("#tag-suggestions").html('');
 
     $("#tags").val('');
+
 }
 
 function deletetag(id) {
     $('#' + id).remove();
     tag_count--;
+    $('input[name="tag[' + id+']"]').remove();
 }
 
 function ask() {
@@ -63,7 +66,6 @@ function ask() {
     }
     content = UE.getEditor('editor').getContent();
     content = encodeURI(content);
-    alert(content);
-    $("#content").val(content);
+    $("#post-text").val(content);
     $("#post-form").submit();
 }

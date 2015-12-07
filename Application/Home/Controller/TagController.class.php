@@ -25,6 +25,23 @@ class TagController extends Controller {
         $this->display();
     }
 
+    public function create(){
+        if($_POST){
+            $name = $_POST['tagfilter'];
+            //check 以后完善
+
+            $tag = M('tag');
+            $tag->name=$name;
+            $tag->description = $name;
+            $tag->ct = date('Y-m-d H:i:s');
+            $tag->reputation = 0;
+            $tag->user_id = $_SESSION['user'][0]['id'];
+            $tag->add();
+
+        }
+        $this->redirect('index');
+    }
+
     public function filter() {
         if (isset($_POST[ 'filter' ])) {
             $filter = $_POST[ 'filter' ];
@@ -36,6 +53,10 @@ class TagController extends Controller {
                 ->limit(C('TAGPAGESIZE'))
                 ->select();
 
+            if(count($tags)==0) {
+                echo 'notfound';
+                die();
+            }
             $html = '<table id="tags-browser"><tbody>';
 
             $tr = 1;

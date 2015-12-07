@@ -19,14 +19,18 @@ function finished(txt) {
         data: {filter: txt},
         dataType: "html",
         success: function (result) {
-            var domelement = $(result);
-            $("#tags_list").html(domelement);
-            if (txt == "") {
-                $(".pager").show();
+            if (result == 'notfound') {
+                $('input[type=submit]').removeClass();
             } else {
-                $(".pager").hide();
+                $('input[type=submit]').addClass('hidden-important');
+                var domelement = $(result);
+                $("#tags_list").html(domelement);
+                if (txt == "") {
+                    $(".pager").show();
+                } else {
+                    $(".pager").hide();
+                }
             }
-
         }
     });
 }

@@ -18,7 +18,7 @@ class AskController extends BaseController {
             $q->startTrans();
             $q->title = $_POST[ 'title' ];
             $q->content = $_POST[ 'post-text' ];
-            echo $q->content;
+            $q->content = urldecode( $q->content);
             $q->ct = date('Y-m-d H:i:s');
             $user = $_SESSION[ 'user' ];
             $q->user_id = $user[ 0 ][ 'id' ];
@@ -29,6 +29,7 @@ class AskController extends BaseController {
                 $qt->question_id = $result;
                 $qt->tag_id = $tag;
                 $qt->add();
+                M('tag')->where('id = '.$tag)->setInc('reputation',1);
             }
             $q->commit();
             //$this->redirect("/");
