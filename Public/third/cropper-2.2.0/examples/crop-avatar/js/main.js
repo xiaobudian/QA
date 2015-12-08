@@ -47,7 +47,7 @@
     },
 
     init: function () {
-      this.support.datauri = this.support.fileList && this.support.blobURLs;
+      //this.support.datauri = this.support.fileList && this.support.blobURLs;
 
       if (!this.support.formData) {
         this.initIframe();

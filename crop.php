@@ -1,51 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Administrator
- * Date: 2015.12.2
- * Time: 14:15
- */
-
-namespace Home\Controller;
-
-use Think\Controller;
-
-class TestController extends Controller {
-
-    public function uploadifyTest() {
-        $timestamp = time();
-        $token = md5(unique_salt.$timestamp);
-        $this->assign('timestamp', $timestamp);
-        $this->assign('token', $token);
-        $this->display('uploadify');
-    }
-
-    public function sendEmailTest() {
-        echo 'begin send email.';
-        $result = sendMail('849351660@qq.com', 'Welcom to qa!', 'slfjslfj');
-        echo $result;
-
-    }
-
-    public function crop() {
-        if ($_POST) {
-            $crop = new CropAvatar(
-                isset($_POST[ 'src' ]) ? $_POST[ 'src' ] : null,
-                isset($_POST[ 'data' ]) ? $_POST[ 'data' ] : null
-            );
-
-            $response = array(
-                'state' => 200,
-                'message' => $crop->getMsg(),
-                'result' => $crop->getResult()
-            );
-
-            echo json_encode($response);
-            die();
-        }
-        $this->display();
-    }
-}
 
 class CropAvatar {
     private $src;
@@ -54,41 +7,50 @@ class CropAvatar {
     private $type;
     private $extension;
     private $msg;
-    private $name;
 
-    function __construct($src, $data) {
+    function __construct($src, $data, $file) {
         $this->setSrc($src);
         $this->setData($data);
-        $this->setDst();
-        //$this->setFile();
+        $this->setFile($file);
         $this->crop($this->src, $this->dst, $this->data);
     }
 
     private function setSrc($src) {
-        $this->src = $_SERVER[ 'DOCUMENT_ROOT' ].$src;
-        $this->type = strtolower(pathinfo($src, PATHINFO_EXTENSION));
+        if (!empty($src)) {
+            $type = exif_imagetype($src);
+            echo $type;
+            if ($type) {
+                $this->src = $src;
+                $this->type = $type;
+                $this->extension = image_type_to_extension($type);
+                $this->setDst();
+            }
+        }
     }
 
     private function setData($data) {
-        $this->data = $data;
+        if (!empty($data)) {
+            $this->data = json_decode(stripslashes($data));
+        }
     }
 
-    private function setFile() {
-        $errorCode = 0;
+    private function setFile($file) {
+        $errorCode = $file[ 'error' ];
 
         if ($errorCode === UPLOAD_ERR_OK) {
-            $type = 2;//exif_imagetype($file[ 'tmp_name' ]);
+            $type = exif_imagetype($file[ 'tmp_name' ]);
 
             if ($type) {
                 $extension = image_type_to_extension($type);
-                $src = '/Public/img/profile/'.date('YmdHis').'.original'.$extension;
+                $src = 'img/'.date('YmdHis').'.original'.$extension;
 
                 if ($type == IMAGETYPE_GIF || $type == IMAGETYPE_JPEG || $type == IMAGETYPE_PNG) {
 
                     if (file_exists($src)) {
                         unlink($src);
                     }
-                    $result = true;// move_uploaded_file($file[ 'tmp_name' ], $src);
+
+                    $result = move_uploaded_file($file[ 'tmp_name' ], $src);
 
                     if ($result) {
                         $this->src = $src;
@@ -110,23 +72,21 @@ class CropAvatar {
     }
 
     private function setDst() {
-        $this->name = '/Public/img/profile/'.date('YmdHis').'.png';
-        $this->dst = $_SERVER[ 'DOCUMENT_ROOT' ].$this->name;
+        $this->dst = 'img/'.date('YmdHis').'.png';
     }
 
     private function crop($src, $dst, $data) {
         if (!empty($src) && !empty($dst) && !empty($data)) {
             switch ($this->type) {
-                case 'gif':
+                case IMAGETYPE_GIF:
                     $src_img = imagecreatefromgif($src);
                     break;
 
-                case 'jpeg':
-                case 'jpg':
+                case IMAGETYPE_JPEG:
                     $src_img = imagecreatefromjpeg($src);
                     break;
 
-                case 'png':
+                case IMAGETYPE_PNG:
                     $src_img = imagecreatefrompng($src);
                     break;
             }
@@ -143,7 +103,7 @@ class CropAvatar {
             $src_img_w = $size_w;
             $src_img_h = $size_h;
 
-            $degrees = $data[ 'rotate' ];
+            $degrees = $data->rotate;
 
             // Rotate the source image
             if (is_numeric($degrees) && $degrees != 0) {
@@ -164,13 +124,13 @@ class CropAvatar {
                 $src_img_h -= 1;
             }
 
-            $tmp_img_w = $data[ 'width' ];
-            $tmp_img_h = $data[ 'height' ];
+            $tmp_img_w = $data->width;
+            $tmp_img_h = $data->height;
             $dst_img_w = 220;
             $dst_img_h = 220;
 
-            $src_x = $data[ 'x' ];
-            $src_y = $data[ 'y' ];
+            $src_x = $data->x;
+            $src_y = $data->y;
 
             if ($src_x <= -$tmp_img_w || $src_x > $src_img_w) {
                 $src_x = $src_w = $dst_x = $dst_w = 0;
@@ -241,10 +201,24 @@ class CropAvatar {
     }
 
     public function getResult() {
-        return $this->name;//!empty($this->data) ? $this->dst : $this->src;
+        return !empty($this->data) ? $this->dst : $this->src;
     }
 
     public function getMsg() {
         return $this->msg;
     }
 }
+
+$crop = new CropAvatar(
+    isset($_POST[ 'src' ]) ? $_POST[ 'src' ] : null,
+    isset($_POST[ 'data' ]) ? $_POST[ 'data' ] : null,
+    isset($_FILES[ 'avatar_file' ]) ? $_FILES[ 'avatar_file' ] : null
+);
+
+$response = array(
+    'state' => 200,
+    'message' => $crop->getMsg(),
+    'result' => $crop->getResult()
+);
+
+echo json_encode($response);

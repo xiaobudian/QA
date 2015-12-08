@@ -1790,8 +1790,8 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     top: 8px;
     right: 4px;
     position: absolute;
-    background-image: url("../img/filter-sprites.png?v=25267dbcd657");
-    background-image: url("../img/filter-sprites.svg?v=3cbea38b904b");
+    /*background-image: url("../img/filter-sprites.png?v=25267dbcd657");*/
+    /*background-image: url("../img/filter-sprites.svg?v=3cbea38b904b");*/
     background-repeat: no-repeat;
     background-position: 0 -144px
 }
@@ -1986,8 +1986,8 @@ a .newnav .tabs-list-container .bounties-tab:hover, .newnav .tabs-list-container
     height: 16px;
     top: -10px;
     left: 20px;
-    background-image: url("../img/filter-sprites.png?v=25267dbcd657");
-    background-image: url("../img/filter-sprites.svg?v=3cbea38b904b");
+    /*background-image: url("../img/filter-sprites.png?v=25267dbcd657");*/
+    /*background-image: url("../img/filter-sprites.svg?v=3cbea38b904b");*/
     background-repeat: no-repeat;
     background-position: -16px 0
 }
@@ -2060,8 +2060,8 @@ a .newnav .tabs-list-container .bounties-tab:hover, .newnav .tabs-list-container
     height: 14px;
     content: "show";
     font-size: 0;
-    background-image: url("../img/filter-sprites.png?v=25267dbcd657");
-    background-image: url("../img/filter-sprites.svg?v=3cbea38b904b");
+    /*background-image: url("../img/filter-sprites.png?v=25267dbcd657");*/
+    /*background-image: url("../img/filter-sprites.svg?v=3cbea38b904b");*/
     background-position: 0 -97px;
     background-repeat: no-repeat
 }
@@ -2176,8 +2176,8 @@ a .newnav .tabs-list-container .bounties-tab:hover, .newnav .tabs-list-container
     height: 14px;
     content: "sort";
     font-size: 0;
-    background-image: url("../img/filter-sprites.png?v=25267dbcd657");
-    background-image: url("../img/filter-sprites.svg?v=3cbea38b904b");
+    /*background-image: url("../img/filter-sprites.png?v=25267dbcd657");*/
+    /*background-image: url("../img/filter-sprites.svg?v=3cbea38b904b");*/
     background-position: 0 -113px;
     background-repeat: no-repeat
 }
@@ -2324,8 +2324,8 @@ a .newnav .tabs-list-container .bounties-tab:hover, .newnav .tabs-list-container
     width: 16px;
     height: 16px;
     margin: 2px 4px;
-    background: url('../img/filter-sprites.png?v=25267dbcd657') 0 -33px no-repeat;
-    background: url('../img/filter-sprites.svg?v=3cbea38b904b') 0 -33px no-repeat
+    /*background: url('../img/filter-sprites.png?v=25267dbcd657') 0 -33px no-repeat;*/
+    /*background: url('../img/filter-sprites.svg?v=3cbea38b904b') 0 -33px no-repeat*/
 }
 
 .question-list-layout a.expanded {
@@ -2339,8 +2339,8 @@ a .newnav .tabs-list-container .bounties-tab:hover, .newnav .tabs-list-container
     width: 16px;
     height: 16px;
     margin: 2px 4px;
-    background: url('../img/filter-sprites.png?v=25267dbcd657') 0 -49px no-repeat;
-    background: url('../img/filter-sprites.svg?v=3cbea38b904b') 0 -49px no-repeat
+    /*background: url('../img/filter-sprites.png?v=25267dbcd657') 0 -49px no-repeat;*/
+    /*background: url('../img/filter-sprites.svg?v=3cbea38b904b') 0 -49px no-repeat*/
 }
 
 .question-list-layout a .collapsed, .question-list-layout a .expanded {
@@ -2475,8 +2475,8 @@ a .newnav .tabs-list-container .bounties-tab:hover, .newnav .tabs-list-container
     display: block;
     margin-bottom: 0;
     margin-top: 2px;
-    background: url('../img/filter-sprites.png?v=25267dbcd657') 0 -160px no-repeat;
-    background: url('../img/filter-sprites.svg?v=3cbea38b904b') 0 -160px no-repeat;
+    /*background: url('../img/filter-sprites.png?v=25267dbcd657') 0 -160px no-repeat;*/
+    /*background: url('../img/filter-sprites.svg?v=3cbea38b904b') 0 -160px no-repeat;*/
     transition: none
 }
 
@@ -6633,8 +6633,8 @@ textarea#wmd-input {
     height: 16px;
     top: -11px;
     right: 4px;
-    background: url('../img/filter-sprites.png?v=25267dbcd657') -16px 0 no-repeat;
-    background: url('../img/filter-sprites.svg?v=3cbea38b904b') -16px 0 no-repeat
+    /*background: url('../img/filter-sprites.png?v=25267dbcd657') -16px 0 no-repeat;*/
+    /*background: url('../img/filter-sprites.svg?v=3cbea38b904b') -16px 0 no-repeat*/
 }
 
 .dropdown ul {

@@ -21,6 +21,7 @@ bld/
 .metadata/
 ThinkPHP/
 Runtime/
+/Public/img/profile/
 
 # Roslyn cache directories
 *.ide/
