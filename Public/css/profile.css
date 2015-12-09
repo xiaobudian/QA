@@ -3493,7 +3493,3 @@ body.user-page #content .user-tab-content .question-summary * {
 .timeline .timeline-item.edit .current:checked ~ .date-range .to, .timeline .timeline-item.edit .current:checked ~ .date-range .toDate {
     display: none
 }
-.uploadify-queue {
-    display: none;
-
-}
