@@ -37,9 +37,11 @@ class UserController extends BaseController {
 
         if ($_POST) {
             $map[ 'user_id' ] = array('eq', getUserId());
-            $profile = M('profile');
 
-            $profile->username = $_POST[ 'username' ];
+            $user = M('auth_user');
+            $user->startTrans();
+            $user->username = $_POST[ 'username' ];
+            $profile = M('profile');
             $profile->pic = $_POST[ 'pic' ];
             $profile->location = $_POST[ 'location' ];
             $profile->realname = $_POST[ 'realname' ];
@@ -49,7 +51,7 @@ class UserController extends BaseController {
             }else{
                 $profile->birthday = null;
             }
-            $profile->email = $_POST[ 'email' ];
+            $user->commit();
             $profile->where($map)->save();
         }
         $map[ 'u.id' ] = array('eq', getUserId());

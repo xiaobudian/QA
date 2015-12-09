@@ -83,4 +83,11 @@ class IndexController extends Controller {
         echo phpinfo();
     }
 
+    public function search($keyword){
+        if(!$keyword){
+            $this->redirect('index');
+            die();
+        }
+        echo 'sss';
+    }
 }

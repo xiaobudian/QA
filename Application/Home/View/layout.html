@@ -27,9 +27,17 @@
                 <a class="icon-help js-help-button" href="/index.php/Home/Account/logout">Log out</a>
 
                 <div class="search-container">
-                    <form id="search" action="/search" method="get" autocomplete="off">
-                        <input name="q" type="text" placeholder="search" value="" tabindex="1" autocomplete="off"
+                    <form id="search" action="/index.php/Home/Index/search" method="get" autocomplete="off">
+                        <input id="keyword" name="keyword" type="text" placeholder="search" value="" tabindex="1"
+                               autocomplete="off"
                                maxlength="240"/>
+                        <script>
+                            $("#keyword").keyup(function (e) {
+                                if (e.which == 13) {
+                                    $("#search").submit();
+                                }
+                            });
+                        </script>
                     </form>
                 </div>
             </div>
