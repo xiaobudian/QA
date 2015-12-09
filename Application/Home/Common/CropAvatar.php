@@ -2,50 +2,12 @@
 /**
  * Created by PhpStorm.
  * User: Administrator
- * Date: 2015.12.2
- * Time: 14:15
+ * Date: 2015.12.9
+ * Time: 10:22
  */
 
-namespace Home\Controller;
+namespace Home\Common;
 
-use Think\Controller;
-
-class TestController extends Controller {
-
-    public function uploadifyTest() {
-        $timestamp = time();
-        $token = md5('unique_salt'.$timestamp);
-        $this->assign('timestamp', $timestamp);
-        $this->assign('token', $token);
-        $this->display('uploadify');
-    }
-
-    public function sendEmailTest() {
-        echo 'begin send email.';
-        $result = sendMail('849351660@qq.com', 'Welcom to qa!', 'slfjslfj');
-        echo $result;
-
-    }
-
-    public function crop() {
-        if ($_POST) {
-            $crop = new CropAvatar(
-                isset($_POST[ 'src' ]) ? $_POST[ 'src' ] : null,
-                isset($_POST[ 'data' ]) ? $_POST[ 'data' ] : null
-            );
-
-            $response = array(
-                'state' => 200,
-                'message' => $crop->getMsg(),
-                'result' => $crop->getResult()
-            );
-
-            echo json_encode($response);
-            die();
-        }
-        $this->display();
-    }
-}
 
 class CropAvatar {
     private $src;

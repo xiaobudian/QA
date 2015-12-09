@@ -25,7 +25,17 @@ function sendMail($to, $title, $content) {
     return ($mail->Send());
 }
 
+function getUser(){
+    return $_SESSION[ 'user' ][ 0 ];
+}
+
 function getUserId() {
-    $user = $_SESSION[ 'user' ][ 0 ];
+    $user = getUser();
     return $user[ 'id' ];
 }
+
+function getUserName(){
+    $user = getUser();
+    return $user[ 'username' ];
+}
+

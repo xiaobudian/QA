@@ -1,64 +1,57 @@
-<css href="/Public/css/profile.css" />
-<div id="mainbar-full" class="user-show-new user-page">
-    <div class="subheader reloaded js-user-header" style="box-sizing: content-box;">
-        <div id="tabs">
-            <a href="/users/5619549/shuai-liu?tab=profile" class="youarehere">Profile</a>
-            <a href="/users/5619549/shuai-liu?tab=topactivity">Activity</a>
-            <a href="/users/edit/5619549">Edit Profile &amp; Settings</a>
-        </div>
-    </div>
-    <div id="main-content">
-        <div id="user-card" class="user-card">
-            <div class="row">
-                <div class="row col-sidebar">
-                    <div id="avatar-card" class="avatar-card">
-                        <div class="avatar">
-                            <a href="http://stackoverflow.com/users/5619549/shuai-liu">
-                                <div class="gravatar-wrapper-164"><img
-                                        src="/Public/img/profile/{$profile.pic}"
-                                        alt="" width="164" height="164" class="avatar-user"></div>
-                            </a>
-                        </div>
-                        <div class="reputation" title="reputation">
-                            {$profile.reputation} <span class="label-uppercase">reputation</span>
-                        </div>
-                        <div class="badges only-0">
-                        </div>
+<css href="/Public/css/profile.css"/>
+<include file="common/usersubheader" />
+<div id="main-content">
+    <div id="user-card" class="user-card">
+        <div class="row">
+            <div class="row col-sidebar">
+                <div id="avatar-card" class="avatar-card">
+                    <div class="avatar">
+                        <a href="http://stackoverflow.com/users/5619549/shuai-liu">
+                            <div class="gravatar-wrapper-164"><img
+                                    src="/Public/img/profile/{$profile.pic}"
+                                    alt="" width="164" height="164" class="avatar-user"></div>
+                        </a>
+                    </div>
+                    <div class="reputation" title="reputation">
+                        {$profile.reputation} <span class="label-uppercase">reputation</span>
+                    </div>
+                    <div class="badges only-0">
                     </div>
                 </div>
-                <div class="row col-content">
-                    <div class="col-left col-8 about empty-bio">
-                        <h2 class="user-card-name">
-                            {$profile.username}
-                        </h2>
+            </div>
+            <div class="row col-content">
+                <div class="col-left col-8 about empty-bio">
+                    <h2 class="user-card-name">
+                        {$profile.username}
+                    </h2>
 
-                        <div class="current-position">
-                            <a href="/users/edit/5619549#career" class="add">Add role and company</a>
-                        </div>
-                        <div class="bio">
-                            <p class="text-muted">(Your <i>about me</i> is currently blank. )</p>
-
-                            <p><a href="/index.php/Home/User/edit">编辑</a></p>
-                        </div>
+                    <div class="current-position">
+                        <a href="/users/edit/5619549#career" class="add">Add role and company</a>
                     </div>
-                    <div class="col-right col-4 with-careers">
+                    <div class="bio">
+                        <p class="text-muted">(Your <i>about me</i> is currently blank. )</p>
+
+                        <p><a href="/index.php/Home/User/edit">编辑</a></p>
+                    </div>
+                </div>
+                <div class="col-right col-4 with-careers">
+                    <div class="user-links">
                         <div class="user-links">
-                            <div class="user-links">
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <span class="icon-history"></span>
-                                        Member for <span title="2015-11-30 03:17:48Z">8 days</span>
-                                    </li>
-                                    <li>
-                                        <span class="icon-eye"></span>
-                                        0 profile views
-                                    </li>
-                                    <li>
-                                        <span class="icon-time"></span>
-                                        Last seen <span title="2015-12-07 06:16:41Z"
-                                                        class="relativetime">6 mins ago</span>
-                                    </li>
-                                    <li class="user-header">
+                            <ul class="list-unstyled">
+                                <li>
+                                    <span class="icon-history"></span>
+                                    Member for <span title="2015-11-30 03:17:48Z">8 days</span>
+                                </li>
+                                <li>
+                                    <span class="icon-eye"></span>
+                                    0 profile views
+                                </li>
+                                <li>
+                                    <span class="icon-time"></span>
+                                    Last seen <span title="2015-12-07 06:16:41Z"
+                                                    class="relativetime">6 mins ago</span>
+                                </li>
+                                <li class="user-header">
 
                     <span class="data">
                         <span class="days-visited" style="cursor: pointer;">
@@ -69,15 +62,14 @@
                         </span>
                     </span>
 
-                                    </li>
-                                </ul>
-                            </div>
-
+                                </li>
+                            </ul>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
+
 </div>

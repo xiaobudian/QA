@@ -2,19 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc7f1b15-a67e-4b26-9429-c32b79aebf53" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Application/Home/View/Test/uploadify.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/js/user/cropper.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test/imgeopts.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Test/uploadify.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/crop.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/uploadify.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/php.xml" afterPath="$PROJECT_DIR$/.idea/php.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Application/Home/Common/CropAvatar.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Application/Home/View/Common/usersubheader.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/third/bootstrap-datetimepicker/bootstrap-datetimepicker.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/third/bootstrap-datetimepicker/bootstrap-datetimepicker.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/third/bootstrap-datetimepicker/bootstrap-datetimepicker.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/third/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/third/bootstrap-datetimepicker/bootstrap-datetimepicker.zh-CN.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Public/third/bootstrap-datetimepicker/bootstrap.min.css" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Public/img/profile/default.jpg" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Common/Common/function.php" afterPath="$PROJECT_DIR$/Application/Common/Common/function.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/Controller/TestController.class.php" afterPath="$PROJECT_DIR$/Application/Home/Controller/TestController.class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/View/Test/crop.html" afterPath="$PROJECT_DIR$/Application/Home/View/Test/crop.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/css/style.css" afterPath="$PROJECT_DIR$/Public/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/third/cropper-2.2.0/examples/crop-avatar/js/main.js" afterPath="$PROJECT_DIR$/Public/third/cropper-2.2.0/examples/crop-avatar/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/third/uploadify/uploadify.php" afterPath="$PROJECT_DIR$/Public/third/uploadify/uploadify.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/Controller/UserController.class.php" afterPath="$PROJECT_DIR$/Application/Home/Controller/UserController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/View/User/activity.html" afterPath="$PROJECT_DIR$/Application/Home/View/User/activity.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/View/User/edit.html" afterPath="$PROJECT_DIR$/Application/Home/View/User/edit.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/View/User/profile.html" afterPath="$PROJECT_DIR$/Application/Home/View/User/profile.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Application/Home/View/layout.html" afterPath="$PROJECT_DIR$/Application/Home/View/layout.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/css/profile.css" afterPath="$PROJECT_DIR$/Public/css/profile.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Public/js/user/cropper.js" afterPath="$PROJECT_DIR$/Public/js/user/cropper.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/uploadify.php" afterPath="$PROJECT_DIR$/uploadify.php" />
     </list>
     <ignored path="QA.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -36,63 +43,76 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TestController.class.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Application/Home/Controller/TestController.class.php">
+      <file leaf-file-name="edit.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Application/Home/View/User/edit.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.37238494">
-              <caret line="114" column="5" selection-start-line="114" selection-start-column="5" selection-end-line="114" selection-end-column="5" />
+            <state vertical-scroll-proportion="4.903678">
+              <caret line="274" column="0" selection-start-line="274" selection-start-column="0" selection-end-line="274" selection-end-column="0" />
               <folding>
-                <element signature="e#1744#3019#0#PHP" expanded="false" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#div#1;n#div#1;n#div#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#2;n#div#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#2;n#div#0;n#div#2;n#div#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#3;n#div#0;n#div#2;n#div#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#div#4;n#div#0;n#div#2;n#div#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+                <element signature="n#button#0;n#div#0;n#div#2;n#div#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="uploadify.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Test/uploadify.php">
+      <file leaf-file-name="bootstrap-datetimepicker.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Public/third/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.793103">
-              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="imgeopts.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Test/imgeopts.php">
+      <file leaf-file-name="UserController.class.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Home/Controller/UserController.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.137931">
-              <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
+            <state vertical-scroll-proportion="-12.413794">
+              <caret line="58" column="59" selection-start-line="58" selection-start-column="59" selection-end-line="58" selection-end-column="59" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="activity.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Home/View/User/activity.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="37" selection-start-line="0" selection-start-column="37" selection-end-line="0" selection-end-column="37" />
               <folding>
-                <element signature="e#6#94#0#PHP" expanded="true" />
+                <element signature="n#div#0;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="crop.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/crop.php">
+      <file leaf-file-name="profile.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Home/View/User/profile.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.206897">
-              <caret line="216" column="0" selection-start-line="216" selection-start-column="0" selection-end-line="216" selection-end-column="0" />
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="37" />
               <folding>
-                <element signature="n#CropAvatar#0;n#!!top" expanded="false" />
-                <element signature="n#codeToMessage#0;n#CropAvatar#0;n#!!top" expanded="false" />
-                <element signature="n#getMsg#0;n#CropAvatar#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="crop.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/Home/View/Test/crop.html">
+      <file leaf-file-name="function.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/Common/Common/function.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.275862">
-              <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
-              <folding>
-                <element signature="n#style#0;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
-              </folding>
+            <state vertical-scroll-proportion="-14.310345">
+              <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -100,40 +120,28 @@
       <file leaf-file-name="cropper.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Public/js/user/cropper.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="165" column="50" selection-start-line="165" selection-start-column="50" selection-end-line="165" selection-end-column="50" />
+            <state vertical-scroll-proportion="-84.433334">
+              <caret line="275" column="3" selection-start-line="275" selection-start-column="3" selection-end-line="275" selection-end-column="3" />
               <folding>
                 <element signature="e#0#49#0" expanded="false" />
-                <element signature="e#203#913#0" expanded="false" />
-                <element signature="e#641#906#0" expanded="true" />
-                <element signature="e#754#815#0" expanded="true" />
-                <element signature="e#953#1009#0" expanded="false" />
-                <element signature="e#1355#1826#0" expanded="false" />
-                <element signature="e#1920#2619#0" expanded="false" />
-                <element signature="e#2724#2807#0" expanded="false" />
-                <element signature="e#2892#3030#0" expanded="false" />
-                <element signature="e#3037#3048#0" expanded="false" />
-                <element signature="e#3231#3994#0" expanded="true" />
-                <element signature="e#4250#4281#0" expanded="false" />
-                <element signature="e#4447#4776#0" expanded="false" />
-                <element signature="e#4548#4762#0" expanded="false" />
-                <element signature="e#5179#5584#0" expanded="true" />
-                <element signature="e#5303#5458#0" expanded="true" />
-                <element signature="e#5857#6182#0" expanded="false" />
-                <element signature="e#6278#6464#0" expanded="false" />
-                <element signature="e#7383#8124#0" expanded="true" />
-                <element signature="e#7772#7903#0" expanded="true" />
+                <element signature="e#64#8060#0" expanded="true" />
+                <element signature="e#110#195#0" expanded="true" />
+                <element signature="e#774#944#0" expanded="true" />
+                <element signature="e#991#1047#0" expanded="false" />
+                <element signature="e#1483#1793#0" expanded="true" />
+                <element signature="e#2697#2780#0" expanded="false" />
+                <element signature="e#2865#3003#0" expanded="false" />
+                <element signature="e#3010#3021#0" expanded="false" />
+                <element signature="e#4051#6319#0" expanded="true" />
+                <element signature="e#4223#4254#0" expanded="false" />
+                <element signature="e#4420#4749#0" expanded="false" />
+                <element signature="e#4521#4735#0" expanded="false" />
+                <element signature="e#5152#5422#0" expanded="true" />
+                <element signature="e#5695#6020#0" expanded="false" />
+                <element signature="e#7180#7970#0" expanded="false" />
+                <element signature="e#7221#7962#0" expanded="true" />
+                <element signature="e#7610#7741#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edit.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Application/Home/View/User/edit.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="58" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -141,11 +149,9 @@
       <file leaf-file-name="uploadify.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/uploadify.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="43" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="43" />
-              <folding>
-                <element signature="e#6#153#0#PHP" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="-2.7586207">
+              <caret line="8" column="37" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="37" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -156,8 +162,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -167,8 +173,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Public/js/account/login.html" />
-        <option value="$PROJECT_DIR$/Public/js/md5.js" />
         <option value="$PROJECT_DIR$/Application/Home/View/Account/login.html" />
         <option value="$PROJECT_DIR$/Application/Home/View/Account/register.html" />
         <option value="$PROJECT_DIR$/Public/js/account/register.js" />
@@ -179,7 +183,6 @@
         <option value="$PROJECT_DIR$/Application/Home/View/Index/index.html" />
         <option value="$USER_HOME$/Desktop/job.php" />
         <option value="$PROJECT_DIR$/Application/Home/View/Common/questionlist.html" />
-        <option value="$PROJECT_DIR$/Application/Home/View/layout.html" />
         <option value="$PROJECT_DIR$/Public/js/question/answer.js" />
         <option value="$PROJECT_DIR$/Public/js/question/ask.js" />
         <option value="$PROJECT_DIR$/Application/Runtime/Cache/Home/edbe3656a45a3c71a0c9bbf976be4fd0.php" />
@@ -194,15 +197,9 @@
         <option value="$PROJECT_DIR$/Application/Home/Controller/AskController.class.php" />
         <option value="$PROJECT_DIR$/Application/Home/View/Question/index.html" />
         <option value="$PROJECT_DIR$/Application/Home/View/Tag/index.html" />
-        <option value="$PROJECT_DIR$/Application/Home/View/User/activity.html" />
-        <option value="$PROJECT_DIR$/Public/css/profile.css" />
-        <option value="$PROJECT_DIR$/Application/Common/Common/function.php" />
         <option value="$PROJECT_DIR$/Application/Runtime/Cache/Home/ba5c62579568196d5b99633093ec7988.php" />
         <option value="$PROJECT_DIR$/Application/Home/Controller/AccountController.class.php" />
-        <option value="$PROJECT_DIR$/Application/Home/View/User/profile.html" />
-        <option value="$PROJECT_DIR$/Application/Home/Controller/UserController.class.php" />
         <option value="$PROJECT_DIR$/Public/third/cropper-2.2.0/demo/js/main.js" />
-        <option value="$PROJECT_DIR$/Application/Home/View/User/edit.html" />
         <option value="$PROJECT_DIR$/Public/third/cropper-2.2.0/examples/crop-avatar/index.html" />
         <option value="$PROJECT_DIR$/Public/third/cropper-2.2.0/examples/crop-avatar/crop.php" />
         <option value="$PROJECT_DIR$/Public/third/cropper-2.2.0/examples/crop-avatar/js/main.js" />
@@ -212,12 +209,21 @@
         <option value="$PROJECT_DIR$/Public/css/style.css" />
         <option value="$PROJECT_DIR$/Public/third/uploadify/jquery.uploadify.js" />
         <option value="$PROJECT_DIR$/Application/Home/View/Test/uploadify.html" />
-        <option value="$PROJECT_DIR$/uploadify.php" />
         <option value="$PROJECT_DIR$/Application/Home/View/Test/crop.html" />
         <option value="$PROJECT_DIR$/crop.php" />
         <option value="$PROJECT_DIR$/Test/imgeopts.php" />
         <option value="$PROJECT_DIR$/Application/Home/Controller/TestController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Home/View/layout.html" />
+        <option value="$PROJECT_DIR$/Application/Home/View/Common/usersubheader.html" />
+        <option value="$PROJECT_DIR$/Application/Home/View/User/profile.html" />
+        <option value="$PROJECT_DIR$/Public/css/profile.css" />
+        <option value="$PROJECT_DIR$/Application/Home/Common/CropAvatar.php" />
+        <option value="$PROJECT_DIR$/uploadify.php" />
         <option value="$PROJECT_DIR$/Public/js/user/cropper.js" />
+        <option value="$PROJECT_DIR$/Application/Common/Common/function.php" />
+        <option value="$PROJECT_DIR$/Application/Home/View/User/edit.html" />
+        <option value="$PROJECT_DIR$/Application/Home/Controller/UserController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Home/View/User/activity.html" />
       </list>
     </option>
   </component>
@@ -236,7 +242,7 @@
     <option name="x" value="67" />
     <option name="y" value="-8" />
     <option name="width" value="1861" />
-    <option name="height" value="1096" />
+    <option name="height" value="1092" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -473,7 +479,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value="third" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bootstrap-datetimepicker" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -494,8 +504,22 @@
               <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
+              <option name="myItemId" value="QA" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="QA" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -623,7 +647,121 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="View" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Question" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="QA" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="QA" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="View" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="QA" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="QA" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Model" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="QA" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="QA" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="QA" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="QA" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="QA" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="QA" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Common" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -641,13 +779,14 @@
     <property name="nodejs_interpreter_path" value="" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Studio\XBD\php\QA\Public\js\ask" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Studio\XBD\php\QA\Public\third\bootstrap-datetimepicker" />
       <recent name="D:\Studio\XBD\php\QA\Public\third" />
       <recent name="D:\Studio\XBD\php\QA\ThinkPHP\Library\Vendor" />
       <recent name="D:\Studio\XBD\php\QA\Public\js" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Studio\XBD\php\QA\Public\js\ask" />
     </key>
   </component>
   <component name="RunManager" selected="PHP Web Application.qa-xdebug">
@@ -737,13 +876,13 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="qa-xdebug" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="qa-xdebug" start_url="/index.php/Home/Test/crop">
+    <configuration default="false" name="qa-xdebug" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="qa-xdebug" start_url="/index.php/Home/User/edit">
       <method />
     </configuration>
     <list size="3">
-      <item index="0" class="java.lang.String" itemvalue="PHP Web Application.qa-xdebug" />
-      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.AskController.class.php" />
-      <item index="2" class="java.lang.String" itemvalue="PHP Script.AskController.class.php" />
+      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.AskController.class.php" />
+      <item index="1" class="java.lang.String" itemvalue="PHP Script.AskController.class.php" />
+      <item index="2" class="java.lang.String" itemvalue="PHP Web Application.qa-xdebug" />
     </list>
     <recent_temporary>
       <list size="2">
@@ -766,25 +905,25 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="67" y="-8" width="1861" height="1096" extended-state="7" />
+    <frame x="67" y="-8" width="1861" height="1092" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17669377" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32892057" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4259635" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41649693" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296146" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -808,117 +947,21 @@
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/crop.php</url>
-          <line>212</line>
-          <option name="timeStamp" value="18" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/Test/imgeopts.php</url>
           <line>10</line>
           <option name="timeStamp" value="33" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="39" />
+      <option name="time" value="59" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PhpWebAppRunConfigurationType">
         <watch expression="$data" />
+        <watch expression="$profile[0]" language="PHP" />
       </configuration>
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Application/Home/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Public/js/tag/tag.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="66" selection-start-line="24" selection-start-column="66" selection-end-line="24" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/Controller/TagController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.413794">
-          <caret line="23" column="37" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/View/Ask/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.4482758">
-          <caret line="5" column="42" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Public/js/ask/ask.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="68" column="17" selection-start-line="68" selection-start-column="17" selection-end-line="68" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/Controller/AskController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.655172">
-          <caret line="19" column="48" selection-start-line="19" selection-start-column="48" selection-end-line="19" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/View/Question/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.3793104">
-          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/View/Tag/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.275862">
-          <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/View/User/activity.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.4827585">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Public/css/profile.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.0677967">
-          <caret line="1390" column="71" selection-start-line="1390" selection-start-column="59" selection-end-line="1390" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Common/Common/function.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.0">
-          <caret line="29" column="25" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/Controller/QuestionController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.310345">
-          <caret line="126" column="43" selection-start-line="126" selection-start-column="43" selection-end-line="126" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/View/User/profile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/Controller/AccountController.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-14.4827585">
@@ -991,13 +1034,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/Controller/UserController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4244032">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/Controller/IndexController.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.35543767">
@@ -1036,13 +1072,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.14666666">
           <caret line="62" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="237" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/View/layout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4527297">
-          <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -1131,68 +1160,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/uploadify.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="43" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="43" />
-          <folding>
-            <element signature="e#6#153#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/View/User/edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Application/Home/View/Test/crop.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.275862">
-          <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
-          <folding>
-            <element signature="n#style#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Public/js/user/cropper.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="165" column="50" selection-start-line="165" selection-start-column="50" selection-end-line="165" selection-end-column="50" />
-          <folding>
-            <element signature="e#0#49#0" expanded="false" />
-            <element signature="e#203#913#0" expanded="false" />
-            <element signature="e#641#906#0" expanded="true" />
-            <element signature="e#754#815#0" expanded="true" />
-            <element signature="e#953#1009#0" expanded="false" />
-            <element signature="e#1355#1826#0" expanded="false" />
-            <element signature="e#1920#2619#0" expanded="false" />
-            <element signature="e#2724#2807#0" expanded="false" />
-            <element signature="e#2892#3030#0" expanded="false" />
-            <element signature="e#3037#3048#0" expanded="false" />
-            <element signature="e#3231#3994#0" expanded="true" />
-            <element signature="e#4250#4281#0" expanded="false" />
-            <element signature="e#4447#4776#0" expanded="false" />
-            <element signature="e#4548#4762#0" expanded="false" />
-            <element signature="e#5179#5584#0" expanded="true" />
-            <element signature="e#5303#5458#0" expanded="true" />
-            <element signature="e#5857#6182#0" expanded="false" />
-            <element signature="e#6278#6464#0" expanded="false" />
-            <element signature="e#7383#8124#0" expanded="true" />
-            <element signature="e#7772#7903#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/crop.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.206897">
-          <caret line="216" column="0" selection-start-line="216" selection-start-column="0" selection-end-line="216" selection-end-column="0" />
+        <state vertical-scroll-proportion="-4.827586">
+          <caret line="214" column="31" selection-start-line="214" selection-start-column="20" selection-end-line="214" selection-end-column="31" />
           <folding>
             <element signature="n#CropAvatar#0;n#!!top" expanded="false" />
             <element signature="n#codeToMessage#0;n#CropAvatar#0;n#!!top" expanded="false" />
@@ -1201,30 +1172,220 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/View/Common/questionlist.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32467532">
+          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Test/imgeopts.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.137931">
           <caret line="6" column="3" selection-start-line="6" selection-start-column="3" selection-end-line="6" selection-end-column="3" />
           <folding>
-            <element signature="e#6#94#0#PHP" expanded="true" />
+            <element signature="e#6#94#0#PHP" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/View/Question/details.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/View/layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.034483">
+          <caret line="51" column="93" selection-start-line="51" selection-start-column="85" selection-end-line="51" selection-end-column="93" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/View/Common/usersubheader.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.206897">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/View/Question/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.3793104">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Test/uploadify.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.793103">
+        <state vertical-scroll-proportion="0.5194805">
           <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Public/css/profile.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-30.48276">
+          <caret line="3498" column="1" selection-start-line="3498" selection-start-column="1" selection-end-line="3498" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/View/Test/crop.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.103448">
+          <caret line="19" column="5" selection-start-line="16" selection-start-column="4" selection-end-line="19" selection-end-column="5" />
+          <folding>
+            <element signature="n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Application/Home/Controller/TestController.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37238494">
-          <caret line="114" column="5" selection-start-line="114" selection-start-column="5" selection-end-line="114" selection-end-column="5" />
+        <state vertical-scroll-proportion="-27.724138">
+          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="249" selection-end-column="1" />
           <folding>
-            <element signature="e#1744#3019#0#PHP" expanded="false" />
+            <element signature="e#1127#7963#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/Common/CropAvatar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.137931">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="211" selection-end-column="1" />
+          <folding>
+            <element signature="e#121#6957#1#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/uploadify.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.7586207">
+          <caret line="8" column="37" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Public/js/user/cropper.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-84.433334">
+          <caret line="275" column="3" selection-start-line="275" selection-start-column="3" selection-end-line="275" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#49#0" expanded="false" />
+            <element signature="e#64#8060#0" expanded="true" />
+            <element signature="e#110#195#0" expanded="true" />
+            <element signature="e#774#944#0" expanded="true" />
+            <element signature="e#991#1047#0" expanded="false" />
+            <element signature="e#1483#1793#0" expanded="true" />
+            <element signature="e#2697#2780#0" expanded="false" />
+            <element signature="e#2865#3003#0" expanded="false" />
+            <element signature="e#3010#3021#0" expanded="false" />
+            <element signature="e#4051#6319#0" expanded="true" />
+            <element signature="e#4223#4254#0" expanded="false" />
+            <element signature="e#4420#4749#0" expanded="false" />
+            <element signature="e#4521#4735#0" expanded="false" />
+            <element signature="e#5152#5422#0" expanded="true" />
+            <element signature="e#5695#6020#0" expanded="false" />
+            <element signature="e#7180#7970#0" expanded="false" />
+            <element signature="e#7221#7962#0" expanded="true" />
+            <element signature="e#7610#7741#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Common/Common/function.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.310345">
+          <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Public/third/bootstrap-datetimepicker/bootstrap-datetimepicker.zh-CN.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29411766">
+          <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Public/third/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Public/third/bootstrap-datetimepicker/bootstrap.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Public/third/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/Controller/UserController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.413794">
+          <caret line="58" column="59" selection-start-line="58" selection-start-column="59" selection-end-line="58" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/View/User/profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="37" />
+          <folding>
+            <element signature="n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/View/User/activity.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="37" selection-start-line="0" selection-start-column="37" selection-end-line="0" selection-end-column="37" />
+          <folding>
+            <element signature="n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Home/View/User/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="4.903678">
+          <caret line="274" column="0" selection-start-line="274" selection-start-column="0" selection-end-line="274" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#div#1;n#div#1;n#div#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#2;n#div#0;n#div#2;n#div#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#3;n#div#0;n#div#2;n#div#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#div#4;n#div#0;n#div#2;n#div#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#button#0;n#div#0;n#div#2;n#div#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>

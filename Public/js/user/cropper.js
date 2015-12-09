@@ -2,6 +2,12 @@
  * Created by Administrator on 2015.12.8.
  */
 $(function () {
+
+    $("#change-picture").click(function () {
+        $('#cropper').removeClass('hidden');
+        $image.cropper(options);
+    });
+
     var imagesrc = $("#image").attr('src');
     var timestamp = Math.round(new Date().getTime() / 1000);
     $('#file_upload').uploadify({
@@ -17,11 +23,10 @@ $(function () {
         //'progressData': 'speed',
         //'removeCompleted' : false,
         'onUploadSuccess': function (data) {
-            imagesrc = '/Public/img/profile/' + data.name;
-            $image.one('built.cropper', function () {
-                URL.revokeObjectURL(blobURL);
-            }).cropper('reset').cropper('replace', imagesrc);
+            imagesrc = '/Public/img/uploads/' + data.name;
+            $image.cropper('reset').cropper('replace', imagesrc);
             $inputImage.val('');
+
         },
     });
 
@@ -39,8 +44,6 @@ $(function () {
     var $dataScaleX = $('#dataScaleX');
     var $dataScaleY = $('#dataScaleY');
     var options = {
-        minContainerWidth: 300,
-        minContainerHeight: 300,
         aspectRatio: 1 / 1,
         preview: '.img-preview',
         crop: function (e) {
@@ -163,16 +166,13 @@ $(function () {
                 case 'cut':
                     $.ajax({
                         type: "POST",
-                        url: "/index.php/Home/Test/crop",
+                        url: "/index.php/Home/User/crop",
                         data: {src: imagesrc, data: $image.cropper('getData'),},
                         success: function (data) {
                             data = $.parseJSON(data);
-                            $image.one('built.cropper', function () {
-
-                                // Revoke when load complete
-                                URL.revokeObjectURL(blobURL);
-                            }).cropper('reset').cropper('replace', data.result);
-                            $inputImage.val('');
+                            $(".main-image").attr('src', data.result);
+                            $("#pic").val(data.result);
+                            $('#cropper').addClass('hidden');
                         }
                     });
                     break;

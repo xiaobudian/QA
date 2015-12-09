@@ -6,7 +6,7 @@ Released under the MIT License <http://www.opensource.org/licenses/mit-license.p
 */
 
 // Define a destination
-$targetFolder = '/Public/img/profile'; // Relative to the root
+$targetFolder = '/Public/img/uploads'; // Relative to the root
 
 $verifyToken = md5('unique_salt' . $_POST['timestamp']);
 

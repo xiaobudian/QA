@@ -22,6 +22,7 @@ bld/
 ThinkPHP/
 Runtime/
 /Public/img/profile/
+/Public/img/uploads/
 
 # Roslyn cache directories
 *.ide/
@@ -233,3 +234,4 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+.idea/workspace.xml
