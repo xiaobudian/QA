@@ -6,9 +6,9 @@
             <div class="row col-sidebar">
                 <div id="avatar-card" class="avatar-card">
                     <div class="avatar">
-                        <a href="http://stackoverflow.com/users/5619549/shuai-liu">
+                        <a href="/index.php/Home/User/activity">
                             <div class="gravatar-wrapper-164"><img
-                                    src="/Public/img/profile/{$profile.pic}"
+                                    src="{$profile.pic}"
                                     alt="" width="164" height="164" class="avatar-user"></div>
                         </a>
                     </div>
@@ -29,7 +29,14 @@
                         <a href="/users/edit/5619549#career" class="add">Add role and company</a>
                     </div>
                     <div class="bio">
-                        <p class="text-muted">(Your <i>about me</i> is currently blank. )</p>
+                        <php>
+                            if(!$profile['aboutme']){
+                                echo '<p class="text-muted">(Your <i>about me</i> is currently blank. )</p>';
+                            }else{
+                                echo $profile['aboutme'];
+                            }
+                        </php>
+
 
                         <p><a href="/index.php/Home/User/edit">编辑</a></p>
                     </div>

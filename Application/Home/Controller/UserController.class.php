@@ -25,7 +25,7 @@ class UserController extends BaseController {
         $profile = M('auth_user u')
             ->join('left join profile p on p.user_id = u.id ')
             ->where($map)
-            ->field('u.id,u.username,u.date_joined,p.pic,p.reputation')
+            ->field('u.id,u.username,u.date_joined,p.pic,p.reputation,p.aboutme')
             //->fetchSql(true)
             ->select();
         $this->assign('profile', $profile[ 0 ]);
