@@ -6,14 +6,14 @@ use Think\Cache\Driver\Memcached;
 
 class IndexController extends Controller {
     public function index() {
-        echo memory_get_usage() . '<br />';
-        G('begin');
+//        echo memory_get_usage() . '<br />';
+//        G('begin');
         $key = 'question:' . 'newest';
         $mem = Memcached::getInstance();
         $questions = $mem->get($key);
 
         if (!$questions) {
-            echo 'refreshing' . '<br />';
+            //echo 'refreshing' . '<br />';
 
             $questions =
                 M('question q')
@@ -39,17 +39,19 @@ class IndexController extends Controller {
             $mem->clear();
             $mem->set($key, $questions);
         } else {
-            echo 'cached' . '<br />';
+            //echo 'cached' . '<br />';
         }
 
 
 
         //dump($questions);
-        G('end');
-        echo memory_get_usage() . '<br />';
-        echo G('begin', 'end') . 's';
+
         $this->assign('questions', $questions);
+//        G('end');
+//        echo memory_get_usage() . '<br />';
+//        echo G('begin', 'end') . 's';
         $this->display();
+
 
     }
 

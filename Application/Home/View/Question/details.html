@@ -13,11 +13,12 @@
                     <td class="votecell">
                         <div class="vote">
                             <input type="hidden" name="_id_" value="{$q.id}">
-                            <a class="vote-up-off"
+
+                            <a class="{$vote_type==VOTEUP?'vote-up-on':'vote-up-off'}"
                                title="This question shows research effort; it is useful and clear (click again to undo)">up
                                 vote</a>
                             <span itemprop="upvoteCount" class="vote-count-post ">{$q.votes}</span>
-                            <a class="vote-down-off"
+                            <a class="{$vote_type==VOTEDOWN?'vote-down-on':'vote-down-off'}"
                                title="This question does not show any research effort; it is unclear or not useful (click again to undo)">down
                                 vote</a>
                             <a class="star-off" href="#" title="This is a favorite question (click again to undo)">favorite</a>
@@ -135,14 +136,14 @@
                         <tr>
 
                             <td class="votecell">
-                                <div class="vote">
-                                    <input type="hidden" name="_id_" value="{$a.id}">
-                                    <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
-                                    <span itemprop="upvoteCount" class="vote-count-post ">{$a.votes}</span>
-                                    <a class="vote-down-off" title="This answer is not useful (click again to undo)">down
-                                        vote</a>
-                                </div>
-                            </td>
+                            <div class="vote">
+                                <input type="hidden" name="_id_" value="{$a.id}">
+                                <a class="vote-up-off" title="This answer is useful (click again to undo)">up vote</a>
+                                <span itemprop="upvoteCount" class="vote-count-post ">{$a.votes}</span>
+                                <a class="vote-down-off" title="This answer is not useful (click again to undo)">down
+                                    vote</a>
+                            </div>
+                        </td>
                             <td class="answercell">
                                 <div class="post-text" itemprop="text">
                                     {$a.answer}

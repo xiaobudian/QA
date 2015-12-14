@@ -32,7 +32,7 @@ class TagController extends Controller {
 
             $tag = M('tag');
             $tag->name=$name;
-            $tag->description = $name;
+            $tag->desc = $name;
             $tag->ct = date('Y-m-d H:i:s');
             $tag->reputation = 0;
             $tag->user_id = $_SESSION['user'][0]['id'];
@@ -73,7 +73,7 @@ class TagController extends Controller {
                                     <span class="item-multiplier-count">' . $t[ 'reputation' ] . '</span>
                                 </span>
                                 <div class="excerpt">
-                                    ' . $t[ 'description' ] . '
+                                    ' . $t[ 'desc' ] . '
                                 </div>
                                 <!--<div>-->
                                     <!--<div class="stats-row fl"><a-->

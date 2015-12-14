@@ -12,28 +12,28 @@ use Think\Cache\Driver\Memcached;
 use Think\Controller;
 use Think\Exception;
 
-class QuestionController extends Controller {
+class QuestionController extends BaseController {
 
     public function index($p = 1) {
 
-        echo memory_get_usage() . '<br />';
-        G('begin');
+//        echo memory_get_usage() . '<br />';
+//        G('begin');
         $question = M('question');
         $count = $question->count();
         $page = new \Think\Page($count, C('PAGESIZE'));
         $show = $page->show();
-        $key = 'question:' . 'newest' . $p;
+        $key = 'question:'.'newest'.$p;
         $mem = Memcached::getInstance();
         $questions = $mem->get($key);
 
         if (!$questions) {
-            echo 'refreshing' . '<br />';
+            //echo 'refreshing' . '<br />';
 
             $questions =
                 M('question q')
                     ->order('q.id desc')
                     ->join('auth_user u on q.user_id= u.id')
-                    ->limit($page->firstRow . ',' . $page->listRows)
+                    ->limit($page->firstRow.','.$page->listRows)
                     ->field('q.id,q.title,q.votes,q.answers,q.views,q.ct,u.username,q.user_id,null as tags')
                     ->select();
             $count = count($questions);
@@ -42,7 +42,7 @@ class QuestionController extends Controller {
                 $tags =
                     M('tag t')
                         ->join('question_tags qt on t.id = qt.tag_id')
-                        ->where('qt.question_id = ' . $questions[ $i ][ 'id' ])
+                        ->where('qt.question_id = '.$questions[ $i ][ 'id' ])
                         ->select();
 
                 $questions[ $i ][ 'tags' ] = $tags;
@@ -53,14 +53,14 @@ class QuestionController extends Controller {
 //            $mem->clear();
             $mem->set($key, $questions);
         } else {
-            echo 'cached' . '<br />';
+            //echo 'cached' . '<br />';
         }
 
 
         //dump($questions);
-        G('end');
-        echo memory_get_usage() . '<br />';
-        echo G('begin', 'end') . 's';
+//        G('end');
+//        echo memory_get_usage() . '<br />';
+//        echo G('begin', 'end') . 's';
         $this->assign('page', $show);
         $this->assign('questions', $questions);
         $this->display();
@@ -68,7 +68,7 @@ class QuestionController extends Controller {
     }
 
     public function details($id) {
-        G('b');
+//        G('b');
         $map[ 'q.id' ] = array('eq', $id);
         //dump($map);
         $q = M('question q')
@@ -76,6 +76,18 @@ class QuestionController extends Controller {
             ->join('auth_user u on q.user_id= u.id')
             ->field('q.id,q.title,q.votes,q.content,q.answers,q.views,q.ct,u.username,q.user_id')
             ->select();
+        if (hadLogin()) {
+            unset($map);
+            $map[ 'user_id' ] = array('eq', getUserId());
+            $map[ 'question_id' ] = array('eq', $id);
+            $qv = M('qvote')
+                ->where($map)
+                ->find();
+            if ($qv) {
+                $this->assign('vote_type', $qv[ 'vote_type' ]);
+            }
+        }
+
 //        dump($q);
 //        dump($q[0]['id']);
         if ($q) {
@@ -83,7 +95,7 @@ class QuestionController extends Controller {
             $tags =
                 M('tag t')
                     ->join('question_tags qt on t.id = qt.tag_id')
-                    ->where('qt.question_id = ' . $q[ 'id' ])
+                    ->where('qt.question_id = '.$q[ 'id' ])
                     ->select();
             $q[ 'tags' ] = $tags;
 
@@ -102,8 +114,8 @@ class QuestionController extends Controller {
             $q[ 'q_answers' ] = $answers;
 
 
-            G('e');
-            echo G('b', 'e') . 's';
+//            G('e');
+//            echo G('b', 'e') . 's';
             $this->assign('q', $q);
             $this->display();
         }
@@ -140,12 +152,91 @@ class QuestionController extends Controller {
                     echo $ex->getMessage();
                     die();
                 }
-            }else{
+            } else {
                 echo '答案长度不符合要求';
                 die();
             }
         }
 
-        $this->redirect('/Home/Question/details/id/' . $_POST[ 'question_id' ]);
+        $this->redirect('/Home/Question/details/id/'.$_POST[ 'question_id' ]);
+    }
+
+    function vote($votes, $vote_type) {
+        $this->checkAuth();
+
+        $Question = M('question');
+        $Question->startTrans();
+
+        $r1 = $Question
+            ->where($_POST)
+            ->setInc('votes', $votes);
+        $r3 = true;
+        $uid = getUserId();
+        $qid = $_POST[ 'id' ];
+        $map[ 'user_id' ] = array('eq', $uid);
+        $map[ 'question_id' ] = array('eq', $qid);
+        $qvs = M('qvote')->where($map)->select();
+        $r2 = true;
+        if ($qvs && count($qvs) == 1) {
+            $vote_type_db = $qvs[ 0 ][ 'vote_type' ];
+            if (abs($vote_type_db - $vote_type) == 1) {
+                if ($vote_type_db == VOTEUP) {
+                    $r3 = $Question
+                        ->where($_POST)
+                        ->setInc('votes', -1);
+                } else {
+                    $r3 = $Question
+                        ->where($_POST)
+                        ->setInc('votes', 1);
+                }
+            }
+            if ($vote_type_db != $vote_type) {
+                $qv = M('qvote');
+                $map[ 'id' ] = array('eq', $qvs[ 0 ][ 'id' ]);
+                $qv->vote_type = $vote_type;
+                $r2 = $qv->where($map)
+                    ->save();
+            } else {
+                $r2 = false;
+            }
+        } else {
+            $qv = M('qvote');
+            $qv->user_id = $uid;
+            $qv->question_id = $qid;
+            $qv->ct = date('Y-m-d H:i:s');
+            $qv->vote_type = $vote_type;
+            $r2 = $qv->save();
+        }
+        $result = array();
+        if ($r1 && $r2 && r3) {
+            $Question->commit();
+            $result[ 'result' ] = true;
+            $votes = $Question
+                ->where($_POST)
+                ->field('votes')
+                ->find();
+            $result[ 'votes' ]
+                = $votes[ 'votes' ];
+        } else {
+            $Question->rollback();
+            $result[ 'result' ] = false;
+        }
+        echo json_encode($result);
+    }
+
+    public function  voteupon() {
+        $this->vote(1, VOTEUP);
+    }
+
+    public function  voteupoff() {
+        $this->vote(-1, VOTECANCEL);
+    }
+
+    public function  votedownon() {
+        $this->vote(-1, VOTEDOWN);
+    }
+
+    public function  votedownoff() {
+        $this->vote(1, VOTECANCEL);
     }
 }

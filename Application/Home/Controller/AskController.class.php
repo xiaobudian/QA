@@ -19,6 +19,10 @@ class AskController extends BaseController {
             $q->title = $_POST[ 'title' ];
             $q->content = $_POST[ 'post-text' ];
             $q->content = urldecode( $q->content);
+            $q->votes = 0;
+            $q->answers = 0;
+            $q->views = 0;
+            $q->favorite = 0;
             $q->ct = date('Y-m-d H:i:s');
             $user = $_SESSION[ 'user' ];
             $q->user_id = $user[ 0 ][ 'id' ];
@@ -38,6 +42,7 @@ class AskController extends BaseController {
     }
 
     public function tagsuggestion() {
+    
         if (isset($_POST[ 'filter' ])) {
             $filter = $_POST[ 'filter' ];
             $ids = $_POST[ 'ids' ];
@@ -59,7 +64,7 @@ class AskController extends BaseController {
                                         <span class="match" >'.$t[ 'name' ].'</span >
                                     </span >
                                     <span class="item-multiplier" > × &nbsp;'.$t[ 'reputation' ].' </span >
-                                    <p >'.$t[ 'description' ].'</p >
+                                    <p >'.$t[ 'desc' ].'</p >
                                     <p class="more-info" >
                                         <a href="/index.php/Home/Tag/details/id/'.$t[ 'id' ].'" target="_blank"> learn more </a>
                                     </p >

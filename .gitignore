@@ -23,7 +23,7 @@ ThinkPHP/
 Runtime/
 /Public/img/profile/
 /Public/img/uploads/
-
+/ueditor/
 # Roslyn cache directories
 *.ide/
 

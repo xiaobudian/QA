@@ -13,12 +13,14 @@ use Think\Controller;
 class AccountController extends Controller {
     public function register() {
         if ($_POST) {
-            $user = M('auth_user')->where($_POST)->select();
+            $user = M('auth_user');
+            $user->startTrans();
+            $user = $user->where($_POST)->select();
             if ($user) {
                 dump("email has registered.");
                 die();
             }
-            $user->startTrans();
+
 
             $user = M('auth_user');
             $user->username = $_POST[ 'email' ];

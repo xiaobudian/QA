@@ -23,8 +23,17 @@
     <div class="topbar-wrapper">
         <div class="topbar-links">
             <div class="links-container">
-                <a class="icon-help js-help-button" href="/index.php/Home/Account/login">Log in</a>
-                <a class="icon-help js-help-button" href="/index.php/Home/Account/logout">Log out</a>
+                <php>
+                    if(hadLogin()){
+                        $username = getUserName();
+                        echo ' <a href="/index.php/Home/User/activity">'.$username.'</a>'.
+                             ' <a class="icon-help js-help-button" href="/index.php/Home/Account/logout">Log out</a>';
+                    }else{
+                        echo ' <a class="icon-help js-help-button" href="/index.php/Home/Account/login">Log in</a>';
+                    }
+                </php>
+
+
 
                 <div class="search-container">
                     <form id="search" action="/index.php/Home/Index/search" method="get" autocomplete="off">

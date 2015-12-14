@@ -5,6 +5,10 @@
  * Date: 2015.12.2
  * Time: 14:26
  */
+define ('VOTEUP', 1);
+define ('VOTEDOWN', 2);
+define ('VOTECANCEL', 4);
+
 function sendMail($to, $title, $content) {
     Vendor('PHPMailer.PHPMailerAutoload');
     $mail = new PHPMailer(); //实例化
@@ -39,3 +43,9 @@ function getUserName(){
     return $user[ 'username' ];
 }
 
+function hadLogin(){
+    if (! isset($_SESSION['user']) || empty($_SESSION['user'])) {
+        return false;
+    }
+    return true;
+}
