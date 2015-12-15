@@ -41,7 +41,10 @@ $(function () {
     function updatevotes(data, c1, c2, inc, c3) {
         //data = $.parseJSON(data);
         if (data.result) {
-            var selector = c3 + '-' + data.id;
+            var selector = c3;
+            if (data.id > 0) {
+                selector = c3 + '-' + data.id;
+            }
             $(selector + ' .vote-up-on').removeClass().addClass('vote-up-off');
             $(selector + ' .vote-down-on').removeClass().addClass('vote-down-off');
             $(selector + ' .' + c1).removeClass().addClass(c2);
