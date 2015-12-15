@@ -49,7 +49,7 @@ class AccountController extends Controller {
         $this->display();
     }
 
-    public function login() {
+    public function login($returnUrl = '') {
         if ($_POST) {
             $user = M('auth_user')->where($_POST)->select();
             dump($user);
@@ -62,9 +62,14 @@ class AccountController extends Controller {
                 echo "invalid username or password !";
                 die();
             }
-            $this->redirect("/");
+            if ($returnUrl) {
+                $this->redirect($returnUrl);
+            } else {
+                $this->redirect("/");
+            }
             die();
         }
+        $this->assign('returnUrl', $returnUrl);
         $this->display();
     }
 

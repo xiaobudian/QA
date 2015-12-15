@@ -10,7 +10,7 @@ namespace Home\Controller;
 
 class UserController extends BaseController {
     public function index() {
-        echo 'User/index';
+        $this->display();
     }
 
     public function activity() {
@@ -46,9 +46,9 @@ class UserController extends BaseController {
             $profile->location = $_POST[ 'location' ];
             $profile->realname = $_POST[ 'realname' ];
             $profile->aboutme = $_POST[ 'aboutme' ];
-            if($_POST[ 'birthday' ]) {
+            if ($_POST[ 'birthday' ]) {
                 $profile->birthday = $_POST[ 'birthday' ];
-            }else{
+            } else {
                 $profile->birthday = null;
             }
             $user->commit();

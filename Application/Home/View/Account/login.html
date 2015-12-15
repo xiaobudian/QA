@@ -28,6 +28,7 @@
         <!--<div id="or">or</div>-->
         <!--</div>-->
         <form id="login-form" action="/index.php/Home/Account/login" method="POST">
+            <input name="returnUrl" value="{$returnUrl}" type="hidden">
             <input name="fkey" value="a44b500e532cf3d5851e3f1c23e5fe2e" type="hidden">
             <input name="ssrc" value="head" type="hidden">
             <label for="email">Email</label><br>

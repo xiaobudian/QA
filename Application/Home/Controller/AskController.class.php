@@ -16,9 +16,10 @@ class AskController extends BaseController {
         if ($_POST) {
             $q = M('question');
             $q->startTrans();
+
             $q->title = $_POST[ 'title' ];
             $q->content = $_POST[ 'post-text' ];
-            $q->content = urldecode( $q->content);
+            $q->content = urldecode($q->content);
             $q->votes = 0;
             $q->answers = 0;
             $q->views = 0;
@@ -33,16 +34,16 @@ class AskController extends BaseController {
                 $qt->question_id = $result;
                 $qt->tag_id = $tag;
                 $qt->add();
-                M('tag')->where('id = '.$tag)->setInc('reputation',1);
+                M('tag')->where('id = '.$tag)->setInc('reputation', 1);
             }
             $q->commit();
-            //$this->redirect("/");
+            $this->redirect("/Home/Question/details/id/".$result);
         }
         $this->display();
     }
 
     public function tagsuggestion() {
-    
+
         if (isset($_POST[ 'filter' ])) {
             $filter = $_POST[ 'filter' ];
             $ids = $_POST[ 'ids' ];

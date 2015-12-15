@@ -26,10 +26,10 @@ $(function () {
         $("#post-form").submit();
     });
 
-    function qaajax(url, callback) {
-        var id = $('.question input[name=_id_]').val();
+    function qaajax(id, controller, url, callback) {
+
         $.ajax({
-                url: '/index.php/Home/Question/' + url,
+                url: '/index.php/Home/' + controller + '/' + url,
                 data: {id: id},
                 type: 'post',
                 dataType: 'json',
@@ -38,45 +38,111 @@ $(function () {
         );
     }
 
-    function updatevotes(data, c1, c2, inc) {
+    function updatevotes(data, c1, c2, inc, c3) {
         //data = $.parseJSON(data);
         if (data.result) {
-            $('.question .vote-up-on').removeClass().addClass('vote-up-off');
-            $('.question .vote-down-on').removeClass().addClass('vote-down-off');
-            $('.question .' + c1).removeClass().addClass(c2);
+            var selector = c3 + '-' + data.id;
+            $(selector + ' .vote-up-on').removeClass().addClass('vote-up-off');
+            $(selector + ' .vote-down-on').removeClass().addClass('vote-down-off');
+            $(selector + ' .' + c1).removeClass().addClass(c2);
 
-            $('.question .vote-count-post').html(data.votes);
+            $(selector + ' .vote-count-post').html(data.votes);
         }
     }
 
+    function favorite(url, c1, c2) {
+        qaajax('Question', url, function (data) {
+            if (data.result) {
+                $('.favoritecount').html('<b>' + data.favorite + '</b>')
+                $('.question .' + c1).removeClass().addClass(c2);
+            }
+        })
+    }
+
+    function checklogin() {
+        return $('#hadlogin').val() == '1';
+    }
+
+    function gotologin() {
+        var id = $('.question input[name=_id_]').val();
+        window.location.href = '/index.php/Home/Account/login?returnUrl=/Home/Question/details/id/' + id;
+    }
+
     $('.question .vote a').click(function () {
-        var c = $(this).attr('class');
-        var url, c2, inc;
-        switch (c) {
-            case 'vote-up-on':
-                url = "voteupoff";
-                c2 = 'vote-up-off';
-                inc = -1;
-                break;
-            case 'vote-up-off':
-                url = "voteupon";
-                c2 = 'vote-up-on';
-                inc = 1;
-                break;
-            case 'vote-down-on':
-                url = "votedownoff";
-                c2 = 'vote-down-off';
-                inc = 1;
-                break;
-            case 'vote-down-off':
-                url = "votedownon";
-                c2 = 'vote-down-on';
-                inc = -1;
-                break;
+        if (checklogin()) {
+            var c = $(this).attr('class');
+            var url, c2, inc;
+            switch (c) {
+                case 'star-off':
+                    favorite('favorite', c, 'star-on');
+                    return;
+                    break;
+                case 'star-on':
+                    favorite('unfavorite', c, 'star-off');
+                    return;
+                    break;
+                case 'vote-up-on':
+                    url = "voteupoff";
+                    c2 = 'vote-up-off';
+                    inc = -1;
+                    break;
+                case 'vote-up-off':
+                    url = "voteupon";
+                    c2 = 'vote-up-on';
+                    inc = 1;
+                    break;
+                case 'vote-down-on':
+                    url = "votedownoff";
+                    c2 = 'vote-down-off';
+                    inc = 1;
+                    break;
+                case 'vote-down-off':
+                    url = "votedownon";
+                    c2 = 'vote-down-on';
+                    inc = -1;
+                    break;
+            }
+            var id = $('.question input[name=_id_]').val();
+            qaajax(id, 'Question', url, function (data) {
+                updatevotes(data, c, c2, inc, '.question');
+            });
+        } else {
+            gotologin();
         }
-        qaajax(url, function (data) {
-            updatevotes(data, c, c2, inc);
-        });
     });
 
+    $('.answer .vote a').click(function () {
+        if (checklogin()) {
+            var c = $(this).attr('class');
+            var url, c2, inc;
+            switch (c) {
+                case 'vote-up-on':
+                    url = "voteupoff";
+                    c2 = 'vote-up-off';
+                    inc = -1;
+                    break;
+                case 'vote-up-off':
+                    url = "voteupon";
+                    c2 = 'vote-up-on';
+                    inc = 1;
+                    break;
+                case 'vote-down-on':
+                    url = "votedownoff";
+                    c2 = 'vote-down-off';
+                    inc = 1;
+                    break;
+                case 'vote-down-off':
+                    url = "votedownon";
+                    c2 = 'vote-down-on';
+                    inc = -1;
+                    break;
+            }
+            var id = $(this).siblings('input[name=_id_]').val();
+            qaajax(id, 'Answer', url, function (data) {
+                updatevotes(data, c, c2, inc, '.answer');
+            });
+        } else {
+            gotologin();
+        }
+    });
 });

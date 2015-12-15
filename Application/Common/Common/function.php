@@ -5,9 +5,11 @@
  * Date: 2015.12.2
  * Time: 14:26
  */
-define ('VOTEUP', 1);
-define ('VOTEDOWN', 2);
-define ('VOTECANCEL', 4);
+define('VOTEUP', 1);
+define('VOTEDOWN', 2);
+define('VOTECANCEL', 4);
+define('FAVORITE', 8);
+define('UNFAVORITE', 16);
 
 function sendMail($to, $title, $content) {
     Vendor('PHPMailer.PHPMailerAutoload');
@@ -29,7 +31,7 @@ function sendMail($to, $title, $content) {
     return ($mail->Send());
 }
 
-function getUser(){
+function getUser() {
     return $_SESSION[ 'user' ][ 0 ];
 }
 
@@ -38,13 +40,13 @@ function getUserId() {
     return $user[ 'id' ];
 }
 
-function getUserName(){
+function getUserName() {
     $user = getUser();
     return $user[ 'username' ];
 }
 
-function hadLogin(){
-    if (! isset($_SESSION['user']) || empty($_SESSION['user'])) {
+function hadLogin() {
+    if (!isset($_SESSION[ 'user' ]) || empty($_SESSION[ 'user' ])) {
         return false;
     }
     return true;

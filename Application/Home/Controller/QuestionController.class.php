@@ -71,20 +71,19 @@ class QuestionController extends BaseController {
 //        G('b');
         $map[ 'q.id' ] = array('eq', $id);
         //dump($map);
-        $q = M('question q')
-            ->where($map)
-            ->join('auth_user u on q.user_id= u.id')
-            ->field('q.id,q.title,q.votes,q.content,q.answers,q.views,q.ct,u.username,q.user_id')
-            ->select();
+        $q = M('question q')->where($map)->join('auth_user u on q.user_id= u.id')
+            ->field('q.id,q.title,q.votes,q.content,q.answers,q.views,q.ct,u.username,q.user_id,q.favorite')->select();
         if (hadLogin()) {
             unset($map);
             $map[ 'user_id' ] = array('eq', getUserId());
             $map[ 'question_id' ] = array('eq', $id);
-            $qv = M('qvote')
-                ->where($map)
-                ->find();
+            $qv = M('qvote')->where($map)->find();
             if ($qv) {
                 $this->assign('vote_type', $qv[ 'vote_type' ]);
+            }
+            $fq = M('fquestion')->where($map)->find();
+            if ($fq) {
+                $this->assign('favorite', 1);
             }
         }
 
@@ -93,10 +92,8 @@ class QuestionController extends BaseController {
         if ($q) {
             $q = $q[ 0 ];
             $tags =
-                M('tag t')
-                    ->join('question_tags qt on t.id = qt.tag_id')
-                    ->where('qt.question_id = '.$q[ 'id' ])
-                    ->select();
+                M('tag t')->join('question_tags qt on t.id = qt.tag_id')
+                    ->where('qt.question_id = '.$q[ 'id' ])->select();
             $q[ 'tags' ] = $tags;
 
             $mapanswer[ 'question_id' ] = array('eq', $q[ 'id' ]);
@@ -106,6 +103,17 @@ class QuestionController extends BaseController {
                 ->join(' auth_user u on a.user_id = u.id')
                 ->field('a.id,a.votes,a.answer,a.user_id,u.username,a.ct')
                 ->select();
+            if (hadLogin() && $answers) {
+                foreach ($answers as &$a) {
+                    $mapav[ 'answer_id' ] = array('eq', $a[ 'id' ]);
+                    $mapav[ 'user_id' ] = array('eq', getUserId());
+                    $av = M('avote')->where($mapav)->find();
+                    if ($av) {
+                        $a[ 'vote_type' ] = $av[ 'vote_type' ];
+                    }
+                    unset($mapav);
+                }
+            }
 //            $answer_count = count($answers);
 //            for($i=0;$i<$answer_count;$i++){
 //                $answers[$i]['answer'] = urldecode($answers[$i]['answer']);
@@ -161,62 +169,43 @@ class QuestionController extends BaseController {
         $this->redirect('/Home/Question/details/id/'.$_POST[ 'question_id' ]);
     }
 
-    function vote($votes, $vote_type) {
+    function vote($vote_type, $add = false) {
         $this->checkAuth();
 
         $Question = M('question');
         $Question->startTrans();
 
-        $r1 = $Question
-            ->where($_POST)
-            ->setInc('votes', $votes);
-        $r3 = true;
         $uid = getUserId();
         $qid = $_POST[ 'id' ];
         $map[ 'user_id' ] = array('eq', $uid);
         $map[ 'question_id' ] = array('eq', $qid);
-        $qvs = M('qvote')->where($map)->select();
-        $r2 = true;
-        if ($qvs && count($qvs) == 1) {
-            $vote_type_db = $qvs[ 0 ][ 'vote_type' ];
-            if (abs($vote_type_db - $vote_type) == 1) {
-                if ($vote_type_db == VOTEUP) {
-                    $r3 = $Question
-                        ->where($_POST)
-                        ->setInc('votes', -1);
-                } else {
-                    $r3 = $Question
-                        ->where($_POST)
-                        ->setInc('votes', 1);
-                }
-            }
-            if ($vote_type_db != $vote_type) {
-                $qv = M('qvote');
-                $map[ 'id' ] = array('eq', $qvs[ 0 ][ 'id' ]);
-                $qv->vote_type = $vote_type;
-                $r2 = $qv->where($map)
-                    ->save();
-            } else {
-                $r2 = false;
-            }
-        } else {
+        //删除相关记录
+        M('qvote')->where($map)->delete();
+
+        //添加相关记录
+        $r1 = true;
+        if ($add) {
             $qv = M('qvote');
             $qv->user_id = $uid;
             $qv->question_id = $qid;
             $qv->ct = date('Y-m-d H:i:s');
             $qv->vote_type = $vote_type;
-            $r2 = $qv->save();
+            $r1 = $qv->add();
         }
-        $result = array();
-        if ($r1 && $r2 && r3) {
+        //统计
+        $mapqv[ 'question_id' ] = array('eq', $qid);
+        $mapqv[ 'vote_type' ] = array('eq', VOTEUP);
+        $vote_up_count = M('qvote')->where($mapqv)->count();
+        $mapqv[ 'vote_type' ] = array('eq', VOTEDOWN);
+        $vote_down_count = M('qvote')->where($mapqv)->count();
+        $count = $vote_up_count - $vote_down_count;
+        $Question->where(' id = '.$qid)->setField('votes', $count);
+
+
+        if ($r1) {
             $Question->commit();
             $result[ 'result' ] = true;
-            $votes = $Question
-                ->where($_POST)
-                ->field('votes')
-                ->find();
-            $result[ 'votes' ]
-                = $votes[ 'votes' ];
+            $result[ 'votes' ] = $count;
         } else {
             $Question->rollback();
             $result[ 'result' ] = false;
@@ -225,18 +214,64 @@ class QuestionController extends BaseController {
     }
 
     public function  voteupon() {
-        $this->vote(1, VOTEUP);
+        $this->vote(VOTEUP, true);
     }
 
     public function  voteupoff() {
-        $this->vote(-1, VOTECANCEL);
+        $this->vote(VOTECANCEL);
     }
 
     public function  votedownon() {
-        $this->vote(-1, VOTEDOWN);
+        $this->vote(VOTEDOWN, true);
     }
 
     public function  votedownoff() {
-        $this->vote(1, VOTECANCEL);
+        $this->vote(VOTECANCEL);
+    }
+
+    function basefavorite($add = false) {
+        $this->checkAuth();
+        $r0 = true;
+        $r1 = true;
+        $r2 = true;
+        $fq = M('fquestion');
+        $fq->startTrans();
+
+        $userid = getUserId();
+        $qid = $_POST[ 'id' ];
+        $map[ 'user_id' ] = array('eq', $userid);
+        $map[ 'question_id' ] = array('eq', $qid);
+        $r0 = $fq->where($map)->delete();
+        if ($add) {
+            $f = M('fquestion');
+            $f->ct = date('Y-m-d H:i:s');
+            $f->user_id = $userid;
+            $f->question_id = $qid;
+            $r1 = $f
+                //->fetchSql(true)
+                ->add();
+        }
+        $q = M('question');
+        $count = $fq->where(' question_id = '.$qid)->count();
+        $r2 = $q->where(' id = '.$qid)
+            //->fetchSql(true)
+            ->setField('favorite', $count);
+        if ($r1 && $r2) {
+            $fq->commit();
+            $result[ 'result' ] = true;
+            $result[ 'favorite' ] = $count;
+        } else {
+            $fq->rollback();
+            $result[ 'result' ] = false;
+        }
+        echo json_encode($result);
+    }
+
+    public function favorite() {
+        $this->basefavorite(true);
+    }
+
+    public function unfavorite() {
+        $this->basefavorite();
     }
 }

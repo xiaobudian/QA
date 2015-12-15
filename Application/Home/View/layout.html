@@ -23,12 +23,15 @@
     <div class="topbar-wrapper">
         <div class="topbar-links">
             <div class="links-container">
+                <input type="hidden" id="hadLogin" value="true">
                 <php>
                     if(hadLogin()){
+                        echo ' <input type="hidden" id="hadlogin" value="1"> ';
                         $username = getUserName();
                         echo ' <a href="/index.php/Home/User/activity">'.$username.'</a>'.
                              ' <a class="icon-help js-help-button" href="/index.php/Home/Account/logout">Log out</a>';
                     }else{
+                        echo ' <input type="hidden" id="hadlogin" value="0"> ';
                         echo ' <a class="icon-help js-help-button" href="/index.php/Home/Account/login">Log in</a>';
                     }
                 </php>
@@ -71,7 +74,7 @@
                     <li class="<php> echo CONTROLLER_NAME=='Tag'?'youarehere':''; </php>">
                         <a id="nav-tags" href="/index.php/Home/Tag/index">Tags</a></li>
                     <li class="<php> echo CONTROLLER_NAME=='User'?'youarehere':''; </php>">
-                        <a id="nav-users" href="/index.php/Home/User/activity">Users</a></li>
+                        <a id="nav-users" href="/index.php/Home/User/index">Users</a></li>
                     <li class="<php> echo CONTROLLER_NAME=='Badge'?'youarehere':''; </php>">
                         <a id="nav-badges" href="/index.php/Home/Badge/index">Badges</a></li>
                     <li class="<php> echo CONTROLLER_NAME=='Ask'?'youarehere':''; </php>">
