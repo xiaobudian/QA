@@ -54,7 +54,8 @@ $(function () {
     }
 
     function favorite(url, c1, c2) {
-        qaajax('Question', url, function (data) {
+        var id = $('.question input[name=_id_]').val();
+        qaajax(id, 'Question', url, function (data) {
             if (data.result) {
                 $('.favoritecount').html('<b>' + data.favorite + '</b>')
                 $('.question .' + c1).removeClass().addClass(c2);
