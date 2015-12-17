@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Q and A</title>
+    <title><php>echo $Think.CONTROLLER_NAME=='Index'?'':$Think.CONTROLLER_NAME.' - ';</php>Q and A</title>
     <link rel="shortcut icon" href="//cdn.sstatic.net/stackoverflow/img/favicon.ico?v=4f32ecc8f43d">
     <link rel="apple-touch-icon image_src"
           href="//cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
@@ -23,7 +23,6 @@
     <div class="topbar-wrapper">
         <div class="topbar-links">
             <div class="links-container">
-                <input type="hidden" id="hadLogin" value="true">
                 <php>
                     if(hadLogin()){
                         echo ' <input type="hidden" id="hadlogin" value="1"> ';
@@ -70,15 +69,15 @@
             <div class="nav mainnavs">
                 <ul>
                     <li class="<php> echo CONTROLLER_NAME=='Question'?'youarehere':''; </php>">
-                        <a id="nav-questions" href="/index.php/Home/Question/index">Questions</a></li>
+                        <a id="nav-questions" href="/index.php/Home/Question/index" target="_blank">Questions</a></li>
                     <li class="<php> echo CONTROLLER_NAME=='Tag'?'youarehere':''; </php>">
-                        <a id="nav-tags" href="/index.php/Home/Tag/index">Tags</a></li>
+                        <a id="nav-tags" href="/index.php/Home/Tag/index" target="_blank">Tags</a></li>
                     <li class="<php> echo CONTROLLER_NAME=='User'?'youarehere':''; </php>">
-                        <a id="nav-users" href="/index.php/Home/User/index">Users</a></li>
+                        <a id="nav-users" href="/index.php/Home/User/index" target="_blank">Users</a></li>
                     <li class="<php> echo CONTROLLER_NAME=='Badge'?'youarehere':''; </php>">
-                        <a id="nav-badges" href="/index.php/Home/Badge/index">Badges</a></li>
+                        <a id="nav-badges" href="/index.php/Home/Badge/index" target="_blank">Badges</a></li>
                     <li class="<php> echo CONTROLLER_NAME=='Ask'?'youarehere':''; </php>">
-                        <a id="nav-unanswered" href="/index.php/Home/Ask/index">Ask Question</a></li>
+                        <a id="nav-unanswered" href="/index.php/Home/Ask/index" target="_blank">Ask Question</a></li>
                 </ul>
             </div>
 

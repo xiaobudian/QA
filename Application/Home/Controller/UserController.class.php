@@ -8,8 +8,20 @@
 
 namespace Home\Controller;
 
+use Think\Page;
+
 class UserController extends BaseController {
-    public function index() {
+    public function index($p = 1) {
+        $user = M('auth_user');
+        $count = $user->count();
+        $page = new Page($count, C('PAGESIZE'));
+        $show = $page->show();
+        $users = M('auth_user u')->join(' profile p on u.id = p.user_id ')
+            ->order('p.reputation desc')
+            ->limit($page->firstRow.','.$page->listRows)
+            ->field('u.username,u.id,p.pic,p.location,p.reputation')->select();
+        $this->assign('users', $users);
+        $this->assign('page', $show);
         $this->display();
     }
 

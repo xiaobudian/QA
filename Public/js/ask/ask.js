@@ -54,14 +54,31 @@ function selecttag(id, name) {
 function deletetag(id) {
     $('#' + id).remove();
     tag_count--;
-    $('input[name="tag[' + id+']"]').remove();
+    $('input[name="tag[' + id + ']"]').remove();
 }
 
 function ask() {
+    var title = $.trim($('#title').val());
+    if (title.length < 5) {
+        alert('问题标题至少5个字!');
+        return;
+    }
+    if (title.length > 40) {
+        alert('问题标题最多不超过40个字!');
+        return;
+    }
     var content = UE.getEditor('editor').getContentTxt();
     content = $.trim(content);
     if (content.length < 1) {
         alert("请输入问题详情");
+        return;
+    }
+    if (tag_count < 1) {
+        alert('至少一个tag！');
+        return;
+    }
+    if (tag_count > 5) {
+        alert('最多5个tag！');
         return;
     }
     content = UE.getEditor('editor').getContent();

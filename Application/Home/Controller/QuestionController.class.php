@@ -16,8 +16,6 @@ class QuestionController extends BaseController {
 
     public function index($p = 1) {
 
-//        echo memory_get_usage() . '<br />';
-//        G('begin');
         $question = M('question');
         $count = $question->count();
         $page = new \Think\Page($count, C('PAGESIZE'));
@@ -43,6 +41,7 @@ class QuestionController extends BaseController {
                     M('tag t')
                         ->join('question_tags qt on t.id = qt.tag_id')
                         ->where('qt.question_id = '.$questions[ $i ][ 'id' ])
+                        ->field('t.id,t.name')
                         ->select();
 
                 $questions[ $i ][ 'tags' ] = $tags;
@@ -56,11 +55,6 @@ class QuestionController extends BaseController {
             //echo 'cached' . '<br />';
         }
 
-
-        //dump($questions);
-//        G('end');
-//        echo memory_get_usage() . '<br />';
-//        echo G('begin', 'end') . 's';
         $this->assign('page', $show);
         $this->assign('questions', $questions);
         $this->display();
@@ -129,7 +123,37 @@ class QuestionController extends BaseController {
         }
     }
 
-    public function tagged($id) {
+    public function tagged($id, $p = 1) {
+        $question = M('question q')->join(' question_tags qt on q.id = qt.question_id ')->where(' qt.tag_id = '.$id);
+
+        $count = $question->count();
+        $page = new \Think\Page($count, C('PAGESIZE'));
+        $show = $page->show();
+
+        $questions = M('question q')
+            //->fetchSql(true)
+            ->join(' question_tags qt on q.id = qt.question_id ')
+            ->join('auth_user u on q.user_id = u.id')
+            ->where(' qt.tag_id = '.$id)
+            ->order('q.votes desc')
+            ->limit($page->firstRow.','.$page->listRows)
+            ->field('q.id,q.title,q.votes,q.answers,q.views,q.ct,u.username,q.user_id')
+            ->select();
+        $count = count($questions);
+        for ($i = 0; $i < $count; $i++) {
+
+            $tags =
+                M('tag t')
+                    ->join('question_tags qt on t.id = qt.tag_id')
+                    ->where('qt.question_id = '.$questions[ $i ][ 'id' ])
+                    ->select();
+
+            $questions[ $i ][ 'tags' ] = $tags;
+        }
+
+        $this->assign('page', $show);
+        $this->assign('questions', $questions);
+        $this->display('index');
     }
 
     public function answer() {

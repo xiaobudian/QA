@@ -35,7 +35,7 @@ class AccountController extends Controller {
             $user->date_joined = date('Y-m-d H:i:s');
             $user_id = $user->add();
             $profile = M('profile');
-            $profile->pic = 'default.jpg';
+            $profile->pic = '/Public/img/uploads/default.png';
             $profile->reputation = 0;
             $profile->user_id = $user_id;
             $profile->add();

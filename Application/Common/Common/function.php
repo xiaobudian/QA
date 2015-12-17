@@ -51,3 +51,15 @@ function hadLogin() {
     }
     return true;
 }
+const baseurl = '/index.php/Home/';
+function questiondetailsurl($id) {
+    return baseurl.'Question/details/id/'.$id;
+}
+
+function questiontaggedurl($tagid) {
+    return baseurl.'Question/tagged/id/'.$tagid;
+}
+
+function useractivity($uid) {
+    return baseurl.'User/activity/id/'.$uid;
+}
