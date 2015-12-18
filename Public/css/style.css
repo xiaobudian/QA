@@ -2955,11 +2955,11 @@ div.favicon {
 .favicon {
     background-color  : transparent;
     background-repeat : no-repeat;
-    background-image  : url('../img/favicons-sprite16.png?v=8d57171a741e39e03b230d83ce3ff435')
+    /*background-image  : url('../img/favicons-sprite16.png?v=8d57171a741e39e03b230d83ce3ff435')*/
 }
 @media only screen and (min--moz-device-pixel-ratio : 1.5), only screen and (-o-min-device-pixel-ratio : 3/2), only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) {
     .favicon {
-        background-image        : url('../img/favicons-sprite32.png?v=ccc52358fc009316cca953bb689fa319');
+        /*background-image        : url('../img/favicons-sprite32.png?v=ccc52358fc009316cca953bb689fa319');*/
         -moz-background-size    : 16px 5958px;
         -o-background-size      : 16px 5958px;
         -webkit-background-size : 16px 5958px;

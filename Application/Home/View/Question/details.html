@@ -33,10 +33,7 @@
                                 {$q.content}
                             </div>
                             <div class="post-taglist">
-                                <foreach name="q.tags" item="tag">
-                                    <a href="/index.php/Home/Question/tagged/{$tag.id}" class="post-tag"
-                                       title="show questions tagged &#39;{$tag.name}&#39;" rel="tag">{$tag.name}</a>
-                                </foreach>
+                                <include file="Common/taglist" />
                             </div>
                             <table class="fw">
                                 <tbody>

@@ -1,0 +1,4 @@
+<foreach name="q.tags" item="tag">
+    <a href="{$tag.id|questiontaggedurl}" class="post-tag" title="show questions tagged &#39;{$tag.name}&#39;"
+       rel="tag">{$tag.name}</a>
+</foreach>

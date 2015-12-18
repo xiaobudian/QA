@@ -1,6 +1,6 @@
 <?php
 /**
- * Created by PhpStorm.
+ * Created by liushuai.
  * User: Administrator
  * Date: 2015.11.30
  * Time: 16:33
@@ -11,6 +11,7 @@ namespace Home\Controller;
 use Think\Cache\Driver\Memcached;
 use Think\Controller;
 use Think\Exception;
+use Think\Page;
 
 class QuestionController extends BaseController {
 
@@ -18,15 +19,13 @@ class QuestionController extends BaseController {
 
         $question = M('question');
         $count = $question->count();
-        $page = new \Think\Page($count, C('PAGESIZE'));
+        $page = new Page($count, C('PAGESIZE'));
         $show = $page->show();
         $key = 'question:'.'newest'.$p;
         $mem = Memcached::getInstance();
         $questions = $mem->get($key);
 
         if (!$questions) {
-            //echo 'refreshing' . '<br />';
-
             $questions =
                 M('question q')
                     ->order('q.id desc')
@@ -37,22 +36,11 @@ class QuestionController extends BaseController {
             $count = count($questions);
             for ($i = 0; $i < $count; $i++) {
 
-                $tags =
-                    M('tag t')
-                        ->join('question_tags qt on t.id = qt.tag_id')
-                        ->where('qt.question_id = '.$questions[ $i ][ 'id' ])
-                        ->field('t.id,t.name')
-                        ->select();
+                $tags = $this->getQuestionTags($questions[ $i ][ 'id' ]);
 
                 $questions[ $i ][ 'tags' ] = $tags;
-//                dump($question);
-                //array_push($question,$tags);
-                //dump($question);
             }
-//            $mem->clear();
             $mem->set($key, $questions);
-        } else {
-            //echo 'cached' . '<br />';
         }
 
         $this->assign('page', $show);
@@ -62,9 +50,7 @@ class QuestionController extends BaseController {
     }
 
     public function details($id) {
-//        G('b');
         $map[ 'q.id' ] = array('eq', $id);
-        //dump($map);
         $q = M('question q')->where($map)->join('auth_user u on q.user_id= u.id')
             ->field('q.id,q.title,q.votes,q.content,q.answers,q.views,q.ct,u.username,q.user_id,q.favorite')->select();
         if (hadLogin()) {
@@ -80,14 +66,9 @@ class QuestionController extends BaseController {
                 $this->assign('favorite', 1);
             }
         }
-
-//        dump($q);
-//        dump($q[0]['id']);
         if ($q) {
             $q = $q[ 0 ];
-            $tags =
-                M('tag t')->join('question_tags qt on t.id = qt.tag_id')
-                    ->where('qt.question_id = '.$q[ 'id' ])->select();
+            $tags = $this->getQuestionTags($id);
             $q[ 'tags' ] = $tags;
 
             $mapanswer[ 'question_id' ] = array('eq', $q[ 'id' ]);
@@ -108,19 +89,19 @@ class QuestionController extends BaseController {
                     unset($mapav);
                 }
             }
-//            $answer_count = count($answers);
-//            for($i=0;$i<$answer_count;$i++){
-//                $answers[$i]['answer'] = urldecode($answers[$i]['answer']);
-//            }
-            //dump($answers);
             $q[ 'q_answers' ] = $answers;
 
-
-//            G('e');
-//            echo G('b', 'e') . 's';
             $this->assign('q', $q);
             $this->display();
         }
+    }
+
+    function getQuestionTags($qid) {
+        return M('tag t')
+            ->join('question_tags qt on t.id = qt.tag_id')
+            ->where('qt.question_id = '.$qid)
+            ->field('t.id,t.name')
+            ->select();
     }
 
     public function tagged($id, $p = 1) {
@@ -142,11 +123,7 @@ class QuestionController extends BaseController {
         $count = count($questions);
         for ($i = 0; $i < $count; $i++) {
 
-            $tags =
-                M('tag t')
-                    ->join('question_tags qt on t.id = qt.tag_id')
-                    ->where('qt.question_id = '.$questions[ $i ][ 'id' ])
-                    ->select();
+            $tags = $this->getQuestionTags($questions[ $i ][ 'id' ]);
 
             $questions[ $i ][ 'tags' ] = $tags;
         }
@@ -157,10 +134,11 @@ class QuestionController extends BaseController {
     }
 
     public function answer() {
-        if ($_POST) {
+        if (IS_POST) {
             $answer_str = $_POST[ 'answer' ];
             $answer_str = urldecode($answer_str);
-            if (strlen($answer_str) > 0) {
+            $length = strlen($answer_str);
+            if ($length > 5) {
                 $answer = M('answer');
                 try {
                     $answer->startTrans();
