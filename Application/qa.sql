@@ -30,6 +30,7 @@ create table if not exists question(
     foreign key(uid) references user(id),
     primary key(id)
 );
+alter table question add column summary text not null;
 
 #drop table if exists tag;
 create table if not exists tag(

@@ -28,10 +28,11 @@ class QuestionController extends BaseController {
         if (!$questions) {
             $questions =
                 M('question q')
-                    ->order('q.id desc')
-                    ->join('auth_user u on q.user_id= u.id')
+                    ->order(' q.votes desc ')
+                    ->join(' auth_user u on q.user_id= u.id ')
+                    ->join(' profile p on u.id = p.user_id ')
                     ->limit($page->firstRow.','.$page->listRows)
-                    ->field('q.id,q.title,q.votes,q.answers,q.views,q.ct,u.username,q.user_id,null as tags')
+                    ->field('q.id,q.title,q.votes,q.answers, q.content,q.summary,q.views,q.ct,p.pic,p.reputation,u.username,q.user_id')
                     ->select();
             $count = count($questions);
             for ($i = 0; $i < $count; $i++) {

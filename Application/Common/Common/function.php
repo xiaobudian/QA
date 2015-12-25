@@ -11,6 +11,25 @@ define('VOTECANCEL', 4);
 define('FAVORITE', 8);
 define('UNFAVORITE', 16);
 
+function curPageURL()
+{
+    $pageURL = 'http';
+    if ($_SERVER["HTTPS"] == "on")
+    {
+        $pageURL .= "s";
+    }
+    $pageURL .= "://";
+    if ($_SERVER["SERVER_PORT"] != "80")
+    {
+        $pageURL .= $_SERVER["SERVER_NAME"] . ":" . $_SERVER["SERVER_PORT"] . $_SERVER["REQUEST_URI"];
+    }
+    else
+    {
+        $pageURL .= $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
+    }
+    return $pageURL;
+}
+
 function sendMail($to, $title, $content) {
     Vendor('PHPMailer.PHPMailerAutoload');
     $mail = new PHPMailer(); //实例化
@@ -62,4 +81,8 @@ function questiontaggedurl($tagid) {
 
 function useractivity($uid) {
     return baseurl.'User/activity/id/'.$uid;
+}
+
+function userdetails($uid) {
+    return baseurl.'User/details/id/'.$uid;
 }

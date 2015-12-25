@@ -63,10 +63,10 @@ function ask() {
         alert('问题标题至少5个字!');
         return;
     }
-    if (title.length > 40) {
-        alert('问题标题最多不超过40个字!');
-        return;
-    }
+    //if (title.length > 40) {
+    //    alert('问题标题最多不超过40个字!');
+    //    return;
+    //}
     var content = UE.getEditor('editor').getContentTxt();
     content = $.trim(content);
     if (content.length < 1) {
@@ -81,6 +81,7 @@ function ask() {
         alert('最多5个tag！');
         return;
     }
+    $("input[name=summary]").val(content.substr(0,200));
     content = UE.getEditor('editor').getContent();
     content = encodeURI(content);
     $("#post-text").val(content);

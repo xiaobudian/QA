@@ -19,6 +19,7 @@ class AskController extends BaseController {
 
             $q->title = $_POST[ 'title' ];
             $q->content = $_POST[ 'post-text' ];
+            $q->summary = $_POST['summary'];
             $q->content = urldecode($q->content);
             $q->votes = 0;
             $q->answers = 0;
