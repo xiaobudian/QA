@@ -24,7 +24,6 @@ class QuestionController extends BaseController
         $show = $page->show();
         $query = "call proc_question_page_votes_desc($page->firstRow,$page->listRows) ";
         $questions = M('question')->query($query);
-        var_dump($questions);
 
         $this->assign('page', $show);
         $this->assign('questions', $questions);
@@ -89,9 +88,12 @@ class QuestionController extends BaseController
             ->select();
     }
 
-    public function tagged($id, $p = 1)
+    public function tagged($name, $p = 1)
     {
-        $question = M('question q')->join(' question_tags qt on q.id = qt.question_id ')->where(' qt.tag_id = ' . $id);
+        $question = M('question q')
+            ->join(' question_tags qt on q.id = qt.question_id ')
+            ->join(' tag t on qt.tag_id = t.id ')
+            ->where(" t.name = '" . $name."'");
 
         $count = $question->count();
         $page = new \Think\Page($count, C('PAGESIZE'));
@@ -101,7 +103,8 @@ class QuestionController extends BaseController
             //->fetchSql(true)
             ->join(' question_tags qt on q.id = qt.question_id ')
             ->join('auth_user u on q.user_id = u.id')
-            ->where(' qt.tag_id = ' . $id)
+            ->join(' tag t on qt.tag_id = t.id ')
+            ->where(" t.name = '" . $name."'")
             ->order('q.votes desc')
             ->limit($page->firstRow . ',' . $page->listRows)
             ->field('q.id,q.title,q.votes,q.answers,q.views,q.ct,u.username,q.user_id')

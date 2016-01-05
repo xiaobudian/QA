@@ -75,8 +75,8 @@ function questiondetailsurl($id) {
     return baseurl.'Question/details/id/'.$id;
 }
 
-function questiontaggedurl($tagid) {
-    return baseurl.'Question/tagged/id/'.$tagid;
+function questiontaggedurl($tagname) {
+    return baseurl.'Question/tagged/name/'.$tagname;
 }
 
 function useractivity($uid) {

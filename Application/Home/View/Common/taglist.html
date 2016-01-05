@@ -1,4 +1,13 @@
-<!--<foreach name="q.tags" item="tag">-->
-    <!--<a href="{$tag.id|questiontaggedurl}" class="post-tag" title="show questions tagged &#39;{$tag.name}&#39;"-->
-       <!--rel="tag">{$q.tags}</a>-->
-<!--</foreach>-->
+<php>
+    $tags = $q['tags'];
+    if(strpos($q['tags'],',')){
+        $tags = explode(',',$q['tags']);
+    }
+    $count = count($tags);
+    for( $i = 0; $i < $count;$i++){
+        $url = questiontaggedurl($tags[$i]);
+        echo "<a href='$url' class='post-tag' title='show questions tagged &#39;$tags[$i]&#39;'
+                 rel='tag'>$tags[$i]</a>";
+    }
+</php>
+
