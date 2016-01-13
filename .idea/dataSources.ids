@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
   <data-source name="MySQL - qa@127.0.0.1" uuid="991871e2-c934-43a2-9409-506b61674d17">
-    <database-info product="MySQL" version="5.6.26-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+    <database-info product="MySQL" version="5.7.9-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
     </database-info>
@@ -187,7 +187,6 @@
       <exported-key name="fquestion_question_id_10b97e6455abef05_fk_question_id" table="fquestion" schema="" catalog="qa" columns="question_id"/>
       <exported-key name="question_tags_question_id_7d06d7df83352f81_fk_question_id" table="question_tags" schema="" catalog="qa" columns="question_id"/>
       <exported-key name="qvote_question_id_339d4a3d9c1f9a42_fk_question_id" table="qvote" schema="" catalog="qa" columns="question_id"/>
-      <index name="idx_question_votes" unique="false" columns="votes"/>
       <index name="question_71422c2d" unique="false" columns="user_id"/>
     </table>
     <table name="question_tags" schema="" catalog="qa" type="TABLE">
@@ -225,11 +224,12 @@
       <exported-key name="question_tags_tag_id_5b5936ee2a5adaec_fk_tag_id" table="question_tags" schema="" catalog="qa" columns="tag_id"/>
       <index name="tag_user_id_39770cadddf172c_fk_auth_user_id" unique="false" columns="user_id"/>
     </table>
-    <procedure name="WK" schema="" catalog="qa" type="1"/>
-    <procedure name="proc_question_page_votes_desc" schema="" catalog="qa" type="1">
+    <procedure name="proc_question_paged_orderby_votes_desc" schema="" catalog="qa" type="1"/>
+    <procedure name="proc_question_tagged" schema="" catalog="qa" type="1">
       <prototype>
         <parameter name="firstRow" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="1"/>
         <parameter name="listRows" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" type="1" index="2"/>
+        <parameter name="tag_name" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12" type="1" index="3"/>
       </prototype>
     </procedure>
   </data-source>

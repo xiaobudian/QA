@@ -39,7 +39,7 @@ class AccountController extends Controller {
             $profile->reputation = 0;
             $profile->user_id = $user_id;
             $profile->add();
-            $result = sendMail($_POST[ 'email' ], 'Welcom to qa!', '您的初始密码就是您的邮箱，请登录后及时修改密码！');
+            //$result = sendMail($_POST[ 'email' ], 'Welcom to qa!', '您的初始密码就是您的邮箱，请登录后及时修改密码！');
 
             $user->commit();
             //dump($result);
